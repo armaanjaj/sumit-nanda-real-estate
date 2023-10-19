@@ -2,11 +2,19 @@
 import React from "react";
 import Link from "next/link";
 import Logo from "../logo/Logo";
-import layout from "@/app/site.module.css"
+import layout from "@/app/site.module.css";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import CallOutlinedIcon from "@mui/icons-material/CallOutlined";
 
 export default function Footer() {
     return (
-        <footer id="colophon" role="content-info" className="w-full h-full border-t-2">
+        <footer
+            id="colophon"
+            role="content-info"
+            className="w-full h-full border-t-2 bg-white text-[#535354]"
+        >
             <div id="site-footer-area" className={`${layout.lg} py-16`}>
                 <div
                     id="site-footer-area-inner"
@@ -14,34 +22,67 @@ export default function Footer() {
                 >
                     <div
                         id="footer-container-1"
-                        className="w-1/3 flex flex-col justify-start items-start h-full"
+                        className="w-1/3 flex flex-col justify-start items-start h-full gap-5"
                     >
-                        <Logo />
-                        <span>
-                            &copy; {new Date().getFullYear()} Sumit Nanda
-                        </span>
-                        <span>All Rights Reserved</span>
+                        <div className="flex flex-col justify-start items-start">
+                            <Logo />
+                            <div
+                                id="footer-inner-owner-title-contact"
+                                className="flex flex-col justify-center items-start"
+                            >
+                                <span className="text-lg font-bold">
+                                    Sumit Nanda Real Estate
+                                </span>
+                                <span className="underline">
+                                    <Link
+                                        href={"mailto:sumit.nanda@exarealty.ca"}
+                                    >
+                                        sumit.nanda@exarealty.ca
+                                    </Link>
+                                </span>
+                                <span className="underline">
+                                    <Link href={"tel:+15879717171"}>
+                                        (587)-971-7171
+                                    </Link>
+                                </span>
+                            </div>
+                        </div>
                     </div>
                     <div
                         id="footer-container-2"
                         className="w-1/3 flex flex-col justify-start items-start h-full gap-5"
                     >
                         <div id="popular-pages">
-                            <div className="text-lg font-bold">
-                                Navigation
-                            </div>
+                            <div className="text-lg font-bold">Navigation</div>
                             <ul>
                                 <li>
-                                    <Link href={"/"}>Home</Link>
+                                    <Link className="underline" href={"/"}>
+                                        Home
+                                    </Link>
                                 </li>
                                 <li>
-                                    <Link href={"/about/"}>About</Link>
+                                    <Link
+                                        className="underline"
+                                        href={"/about/"}
+                                    >
+                                        About
+                                    </Link>
                                 </li>
                                 <li>
-                                    <Link href={"/blogs/"}>Blogs</Link>
+                                    <Link
+                                        className="underline"
+                                        href={"/blogs/"}
+                                    >
+                                        Blogs
+                                    </Link>
                                 </li>
                                 <li>
-                                    <Link href={"/contact/"}>Contact</Link>
+                                    <Link
+                                        className="underline"
+                                        href={"/contact/"}
+                                    >
+                                        Contact
+                                    </Link>
                                 </li>
                             </ul>
                         </div>
@@ -62,24 +103,39 @@ export default function Footer() {
                         id="footer-container-3"
                         className="w-1/3 flex flex-col justify-start items-start h-full gap-5"
                     >
-                        <div
-                            id="footer-inner-owner-title-contact"
-                            className="flex flex-col justify-center items-start"
+                        <nav
+                            id="social-links"
+                            className="w-fit flex flex-col justify-center items-center"
                         >
-                            <span className="text-lg font-bold">
-                                Sumit Nanda Real Estate
-                            </span>
-                            <span className="underline">
-                                <Link href={"mailto:sumit.nanda@exarealty.ca"}>
-                                    sumit.nanda@exarealty.ca
-                                </Link>
-                            </span>
-                            <span className="underline">
-                                <Link href={"tel:+15879717171"}>
-                                    (587)-971-7171
-                                </Link>
-                            </span>
-                        </div>
+                            <div className="text-lg font-bold">
+                                Socials
+                            </div>
+                            <div className="w-fit flex flex-row justify-center items-center">
+
+                            <ul className="list-none flex flex-row gap-3 scale-110">
+                                <li>
+                                    <Link
+                                        href={
+                                            "https://www.facebook.com/profile.php?id=100067482373167&mibextid=ZbWKwL"
+                                        }
+                                        target="_blank"
+                                    >
+                                        <FacebookIcon />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        href={
+                                            "https://www.instagram.com/sumitnandaexa/"
+                                        }
+                                        target="_blank"
+                                    >
+                                        <InstagramIcon />
+                                    </Link>
+                                </li>
+                            </ul>
+                            </div>
+                        </nav>
                         <div
                             id="footer-inner-owner-address"
                             className="flex flex-col justify-center items-start"
@@ -92,13 +148,23 @@ export default function Footer() {
                                     height="460"
                                     loading="lazy"
                                     about="EXA realty google map location"
-                                    className="w-fit h-fit"
+                                    className="w-fit h-fit border-2"
                                 ></iframe>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className=""><Link href={"/terms-privacy-policy"}>Terms & Privacy policy</Link></div>
+                <div className="flex flex-row justify-between items-center">
+                    <div className="flex flex-col justify-start items-start">
+                        <span>
+                            &copy; {new Date().getFullYear()} Sumit Nanda
+                        </span>
+                        <span>All Rights Reserved</span>
+                    </div>
+                    <Link href={"/terms-privacy-policy"}>
+                        Terms & Privacy policy
+                    </Link>
+                </div>
             </div>
         </footer>
     );

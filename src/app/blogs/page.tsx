@@ -10,13 +10,9 @@ export default function BlogsPage() {
 
     return (
         <>
-            <Header />
             <main>
-                <section>
-                    
-                </section>
+                <section></section>
             </main>
-            <Footer />
         </>
     );
 }

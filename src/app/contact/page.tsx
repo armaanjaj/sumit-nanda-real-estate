@@ -1,6 +1,4 @@
 "use client";
-import Footer from "@/components/footer/Footer";
-import Header from "@/components/header/Header";
 import React from "react";
 import layout from "@/app/site.module.css";
 import Link from "next/link";
@@ -11,66 +9,36 @@ export default function ContactPage() {
         document.title = "Contact - Sumit Nanda";
     }, []);
 
-    const formQuestions = {
-        question1:{
-            title:"Name",
-            type:{
-                fieldType:"text",
-                category:"full",
-            },
-            required:true
-        },
-        question2:{
-            title:"Email",
-            type:{
-                fieldType:"email",
-            },
-            required:true
-        },
-        question3:{
-            title:"Phone",
-            type:{
-                fieldType:"tel",
-            },
-            required:false
-        },
-        question4:{
-            title:"What brings you here?",
-            type:{
-                fieldType:"checkbox",
-                options:{
-                    option1:"Looking to sell",
-                    option2:"Looking to buy",
-                    option3:"Interested in investment properties",
-                    option4:"Other"
-                }
-            },
-            required:true
-        },
-        question5:{
-            title:"Address",
-            type:{
-                fieldType:"email",
-            },
-            required:true
-        },
-    }
-
     return (
         <>
-            <Header />
             <main>
-                <div className={`${layout.xl} py-24 h-full`}>
+                <div
+                    className={`${layout.lg} py-24 h-full w-full`}
+                >
                     <section
                         id="contact-container-1"
-                        className="flex flex-row justify-center items-start"
+                        className="flex flex-row justify-between items-start gap-5"
                     >
-                        <section id="contact-container-right">
+                        <div id="contact-container-right" className="flex flex-col justify-normal items-baseline gap-8">
+                            <div className="flex flex-col justify-center items-start gap-4 w-full border-b-2 pb-8">
+                                <h1 className="text-lg">
+                                    Book a free 30 minutes appointment with me
+                                </h1>
+                                <p>
+                                    <Link
+                                        href="https://calendly.com/sumitnandaexa/30min"
+                                        target="_blank"
+                                        className="uppercase text-white bg-black px-3 py-1 rounded-sm hover:bg-gray-800 transition"
+                                    >
+                                        schedule appointment
+                                    </Link>
+                                </p>
+                            </div>
                             <Form />
-                        </section>
+                        </div>
                         <div
                             id="container-container-left"
-                            className="w-1/2 flex flex-col justify-start items-start h-full gap-5"
+                            className="w-1/2 flex flex-col justify-start items-start h-full gap-5 sticky top-5"
                         >
                             <div
                                 id="footer-inner-owner-title-contact"
@@ -93,6 +61,15 @@ export default function ContactPage() {
                                 </span>
                             </div>
                             <div
+                                id="footer-inner-owner-office-hours"
+                                className="flex flex-col justify-center items-start"
+                            >
+                                <span className="font-bold">Office hours</span>
+                                <span className="uppercase">
+                                    9 am - 6 pm monday - friday
+                                </span>
+                            </div>
+                            <div
                                 id="footer-inner-owner-address"
                                 className="flex flex-col justify-center items-start"
                             >
@@ -106,7 +83,7 @@ export default function ContactPage() {
                                         height="460"
                                         loading="lazy"
                                         about="EXA realty google map location"
-                                        className="w-fit min-h-full"
+                                        className="w-fit min-h-full border-2"
                                     ></iframe>
                                 </div>
                             </div>
@@ -114,7 +91,6 @@ export default function ContactPage() {
                     </section>
                 </div>
             </main>
-            <Footer />
         </>
     );
 }
