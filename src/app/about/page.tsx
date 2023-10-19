@@ -15,9 +15,9 @@ export default function AboutPage() {
             <main>
                 <section
                     id="about"
-                    className={`${layout.lg} py-24 h-full w-full flex flex-col justify-start items-center gap-3`}
+                    className={`xs:px-2 sm:px-5 md:px-10 lg:px-16 xl:px-36 py-24 h-full w-full flex flex-col justify-start items-center gap-3`}
                 >
-                    <div className="flex flex-row justify-center items-center gap-5">
+                    <div className="flex justify-center items-center gap-5 xs:flex-col sm:flex-col md:flex-col lg:flex-row xl:flex-row">
                         <Image
                             src="/Sumit-Nanda.png"
                             alt="Sumit Nanda"

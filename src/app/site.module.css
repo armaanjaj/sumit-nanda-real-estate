@@ -1,21 +1,29 @@
-/* Small screens (phones) - 640px and up */
+/* X-Small screens - 280px and up */
+.xs {
+    padding-left: 1.5rem; /* 24px */
+    padding-right: 1.5rem; /* 24px */
+}
+
+/* Small screens - 320px and up */
 .sm {
-    
+    padding-left: 2.5rem; /* 40px */
+    padding-right: 2.5rem; /* 40px */
 }
 
-/* Medium screens (tablets) - 768px and up */
+/* Medium screens - 640px and up */
 .md {
-
+    padding-left: 4rem; /* 64px */
+    padding-right: 4rem; /* 64px */
 }
 
-/* Large screens (desktops) - 1024px and up */
+/* Large screens - 1024px and up */
 .lg {
-    padding-left: 6rem/* 96px */;
-    padding-right: 6rem/* 96px */;
+    padding-left: 6rem; /* 96px */
+    padding-right: 6rem; /* 96px */
 }
 
-/* Extra large screens (large desktops) - 1280px and up */
+/* Extra large screens - 1280px and up */
 .xl {
-    padding-left: 9rem/* 144px */;
-    padding-right: 9rem/* 144px */;
+    padding-left: 9rem; /* 144px */
+    padding-right: 9rem; /* 144px */
 }

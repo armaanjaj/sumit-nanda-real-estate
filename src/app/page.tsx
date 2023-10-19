@@ -1,11 +1,14 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import ArrowRightAltRoundedIcon from "@mui/icons-material/ArrowRightAltRounded";
 import React from "react";
 import layout from "@/app/site.module.css";
 
 export default function Home() {
+    React.useEffect(() => {
+        document.title = "Sumit Nanda - Real Estate";
+    }, []);
+
     return (
         <>
             <main>
@@ -59,7 +62,7 @@ export default function Home() {
                             </div>
                         </div>
                     </div>
-                    <section className={`${layout.lg} py-24 h-full w-full`}>
+                    <section className={`xs:px-2 sm:px-5 md:px-10 lg:px-16 xl:px-36 py-24 h-full w-full`}>
                         <div
                             id="get-started"
                             className="flex flex-col justify-center items-center gap-4"

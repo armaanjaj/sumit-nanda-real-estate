@@ -13,11 +13,11 @@ export default function ContactPage() {
         <>
             <main>
                 <div
-                    className={`${layout.lg} py-24 h-full w-full`}
+                    className={`xs:px-2 sm:px-5 md:px-10 lg:px-16 xl:px-36 py-24 h-full w-full`}
                 >
                     <section
                         id="contact-container-1"
-                        className="flex flex-row justify-between items-start gap-5"
+                        className="flex justify-between items-start gap-10 xs:flex-col sm:flex-col md:flex-col lg:flex-row xl:flex-row"
                     >
                         <div id="contact-container-right" className="flex flex-col justify-normal items-baseline gap-8">
                             <div className="flex flex-col justify-center items-start gap-4 w-full border-b-2 pb-8">
@@ -38,7 +38,7 @@ export default function ContactPage() {
                         </div>
                         <div
                             id="container-container-left"
-                            className="w-1/2 flex flex-col justify-start items-start h-full gap-5 sticky top-5"
+                            className="xs:w-full sm:w-full md:w-full lg:w-1/2 xl:w-1/2 flex flex-col justify-start items-start h-full gap-5 sticky top-5 xs:pt-5 sm:pt-5 md:pt-5 lg:pt-0 xl:pt-0 xs:border-t-2 sm:border-t-2 md:border-t-2 lg:border-none xl:border-none"
                         >
                             <div
                                 id="footer-inner-owner-title-contact"

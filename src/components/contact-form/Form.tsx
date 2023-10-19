@@ -30,7 +30,7 @@ export default function Form() {
     const onSubmit: SubmitHandler<Inputs> = (data, e) => {
         e?.preventDefault();
         console.log(data);
-        reset()
+        reset();
         toast("Form submitted successfully");
     };
 
@@ -39,10 +39,7 @@ export default function Form() {
     return (
         <>
             <div>
-                <Toaster
-                    position="top-center"
-                    reverseOrder={false}
-                />
+                <Toaster position="top-center" reverseOrder={false} />
             </div>
             <div className="flex flex-col justify-center items-start gap-5">
                 <div className="flex flex-col justify-center items-start gap-2">
@@ -104,20 +101,22 @@ export default function Form() {
                         <div className="flex gap-2">
                             <input
                                 type="checkbox"
+                                id="ReasonToSell"
                                 value={"Looking to sell"}
                                 {...register("Reason", { required: true })}
                                 className="border"
                             />
-                            <span>Looking to sell</span>
+                            <label htmlFor="ReasonToSell">Looking to sell</label>
                         </div>
                         <div className="flex gap-2">
                             <input
                                 type="checkbox"
+                                id="ReasonToBuy"
                                 value={"Looking to buy"}
                                 {...register("Reason", { required: true })}
                                 className="border"
                             />
-                            <span>Looking to buy</span>
+                            <label htmlFor="ReasonToBuy">Looking to buy</label>
                         </div>
                         {errors.Reason && (
                             <RedMessage>This field is required</RedMessage>
@@ -138,7 +137,7 @@ export default function Form() {
                             Anything else you would like to talk about?
                         </label>
                         <textarea
-                            cols={40}
+                            cols={30}
                             rows={5}
                             {...register("TextArea")}
                             className="border text-black px-5 py-2"
@@ -149,12 +148,15 @@ export default function Form() {
                         <input
                             type="checkbox"
                             value={"true"}
+                            id="TermsAndCondition"
                             {...register("TermsAndCondition", {
                                 required: true,
                             })}
                         />{" "}
-                        I agree to be contacted by Sumit Nanda Real Estate via
-                        call, email or text.
+                        <label htmlFor="TermsAndCondition">
+                            I agree to be contacted by Sumit Nanda Real Estate
+                            via call, email or text.
+                        </label>
                     </div>
                     {errors.TermsAndCondition && (
                         <RedMessage>Please agree to the terms</RedMessage>

@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
 body {
     color: #535354;
     overflow-y: scroll;

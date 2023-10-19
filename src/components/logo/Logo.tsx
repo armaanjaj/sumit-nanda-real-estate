@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React from "react";
 
-export default function Logo({ className = null }) {
+export default function Logo() {
     return (
         <Image
             src="/Logo.png"
@@ -10,7 +10,7 @@ export default function Logo({ className = null }) {
             width={800}
             height={1000}
             priority
-            className={`w-fit h-fit ${className && className}`}
+            className={`w-fit h-fit`}
         />
     );
 }

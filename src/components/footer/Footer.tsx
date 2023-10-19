@@ -15,14 +15,14 @@ export default function Footer() {
             role="content-info"
             className="w-full h-full border-t-2 bg-white text-[#535354]"
         >
-            <div id="site-footer-area" className={`${layout.lg} py-16`}>
+            <div id="site-footer-area" className={`xs:px-2 sm:px-5 md:px-10 lg:px-16 xl:px-36 py-16`}>
                 <div
                     id="site-footer-area-inner"
-                    className="flex flex-row justify-start items-start mb-5"
+                    className="flex justify-start items-start mb-5 xs:flex-col sm:flex-col md:flex-col lg:flex-row xl:flex-row gap-5"
                 >
                     <div
                         id="footer-container-1"
-                        className="w-1/3 flex flex-col justify-start items-start h-full gap-5"
+                        className="xs:w-full sm:w-full md:w-full lg:w-1/3 xl:w-1/3 flex flex-col justify-start items-start h-full gap-5"
                     >
                         <div className="flex flex-col justify-start items-start">
                             <Logo />
@@ -50,7 +50,7 @@ export default function Footer() {
                     </div>
                     <div
                         id="footer-container-2"
-                        className="w-1/3 flex flex-col justify-start items-start h-full gap-5"
+                        className="xs:w-full sm:w-full md:w-full lg:w-1/3 xl:w-1/3 flex flex-col justify-start items-start h-full gap-5"
                     >
                         <div id="popular-pages">
                             <div className="text-lg font-bold">Navigation</div>
@@ -101,7 +101,7 @@ export default function Footer() {
                     </div>
                     <div
                         id="footer-container-3"
-                        className="w-1/3 flex flex-col justify-start items-start h-full gap-5"
+                        className="xs:w-full sm:w-full md:w-full lg:w-1/3 xl:w-1/3 flex flex-col justify-start items-start h-full gap-5"
                     >
                         <nav
                             id="social-links"
