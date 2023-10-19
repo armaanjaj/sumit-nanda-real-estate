@@ -3,6 +3,7 @@ import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import styled from "styled-components";
 import toast, { Toaster } from "react-hot-toast";
+import axios from "axios";
 
 type Inputs = {
     Name: string;
@@ -19,22 +20,37 @@ const RedMessage = styled.span`
     font-size: small;
 `;
 
+const CONTACT_FORM_URL = "/api/contact";
+
 export default function Form() {
     const {
         register,
         handleSubmit,
-        watch,
         reset,
         formState: { errors },
     } = useForm<Inputs>();
+
     const onSubmit: SubmitHandler<Inputs> = (data, e) => {
         e?.preventDefault();
-        console.log(data);
-        reset();
-        toast("Form submitted successfully");
-    };
 
-    // console.log(watch("Reason"));
+        axios
+            .post(CONTACT_FORM_URL, data, {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+            .then((response) => {
+                if (response.data.success) {
+                    toast(response.data.message);
+                } else {
+                    toast(response.data.message);
+                }
+            })
+            .catch((error) => console.log(error))
+            .finally();
+
+        reset();
+    };
 
     return (
         <>
@@ -76,7 +92,7 @@ export default function Form() {
                         </label>
                         <input
                             type="email"
-                            placeholder="Email"
+                            placeholder="E-mail"
                             {...register("Email", { required: true })}
                             className="border rounded-none px-5 py-2 text-black"
                         />
@@ -106,7 +122,9 @@ export default function Form() {
                                 {...register("Reason", { required: true })}
                                 className="border"
                             />
-                            <label htmlFor="ReasonToSell">Looking to sell</label>
+                            <label htmlFor="ReasonToSell">
+                                Looking to sell
+                            </label>
                         </div>
                         <div className="flex gap-2">
                             <input
