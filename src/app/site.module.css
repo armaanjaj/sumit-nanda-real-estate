@@ -1,0 +1,21 @@
+/* Small screens (phones) - 640px and up */
+.sm {
+    
+}
+
+/* Medium screens (tablets) - 768px and up */
+.md {
+
+}
+
+/* Large screens (desktops) - 1024px and up */
+.lg {
+    padding-left: 6rem/* 96px */;
+    padding-right: 6rem/* 96px */;
+}
+
+/* Extra large screens (large desktops) - 1280px and up */
+.xl {
+    padding-left: 9rem/* 144px */;
+    padding-right: 9rem/* 144px */;
+}
