@@ -68,20 +68,28 @@ export default function Footer() {
                                         About
                                     </Link>
                                 </li>
-                                <li>
+                                {/* <li>
                                     <Link
                                         className="underline"
                                         href={"/blogs/"}
                                     >
                                         Blogs
                                     </Link>
-                                </li>
+                                </li> */}
                                 <li>
                                     <Link
                                         className="underline"
                                         href={"/contact/"}
                                     >
                                         Contact
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        className="underline"
+                                        href={"/tools/"}
+                                    >
+                                        Tools
                                     </Link>
                                 </li>
                             </ul>

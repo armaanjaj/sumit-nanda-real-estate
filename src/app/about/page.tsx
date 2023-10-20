@@ -1,8 +1,5 @@
 "use client";
-import Footer from "@/components/footer/Footer";
-import Header from "@/components/header/Header";
 import React from "react";
-import layout from "@/app/site.module.css";
 import Image from "next/image";
 
 export default function AboutPage() {

@@ -23,6 +23,14 @@ export default function RootLayout({
                 {children}
                 <Footer />
             </body>
+            <div id="fb-root"></div>
+            <script
+                async
+                defer
+                crossOrigin="anonymous"
+                src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v18.0"
+                nonce="4UggOpqd"
+            ></script>
         </html>
     );
 }

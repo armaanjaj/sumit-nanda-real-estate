@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import ArrowRightAltRoundedIcon from "@mui/icons-material/ArrowRightAltRounded";
+import OpenInNewSharpIcon from "@mui/icons-material/OpenInNewSharp";
 import React from "react";
 import { motion } from "framer-motion";
 import Listing from "@/components/listing/Listing";
@@ -89,7 +90,7 @@ export default function Home() {
                                         </span>
                                         <span className="hidden group-hover:block">
                                             Explore properties
-                                            <ArrowRightAltRoundedIcon className="arrow-icon" />
+                                            <OpenInNewSharpIcon className="arrow-icon" />
                                         </span>
                                     </Link>
                                 </motion.div>
@@ -123,6 +124,31 @@ export default function Home() {
                                     </Link>
                                 </motion.div>
                             </div>
+                            <motion.div
+                                initial={{
+                                    opacity: 0,
+                                    y: 10,
+                                }}
+                                animate={{
+                                    opacity: 1,
+                                    y: 0,
+                                }}
+                                transition={{
+                                    duration: 0.5,
+                                    delay: 0.4,
+                                    type: "spring",
+                                }}
+                            >
+                                <Link
+                                    href={"/tools/firm-listings"}
+                                    className="flex flex-row flex-nowrap justify-center link-button group relative rounded w-fit px-5 py-3 bg-red-600 text-white font-bold transition-transform ease-in-out duration-300 hover:-translate-y-1"
+                                >
+                                    <span>
+                                        Firm listings
+                                        <ArrowRightAltRoundedIcon className="arrow-icon" />
+                                    </span>
+                                </Link>
+                            </motion.div>
                         </div>
                     </div>
                     <section

@@ -145,6 +145,20 @@ export default function Header() {
                                                     )}
                                                 </Link>
                                             </li>
+                                            <li>
+                                                <Link
+                                                    href={"/tools/"}
+                                                    className={`${
+                                                        path.startsWith("/tools") &&
+                                                        "text-black"
+                                                    } hover:text-black transition flex flex-col`}
+                                                >
+                                                    Tools
+                                                    {path.startsWith("/tools") && (
+                                                        <span className="bg-black p-[0.025rem]"></span>
+                                                    )}
+                                                </Link>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -242,6 +256,19 @@ export default function Header() {
                                 >
                                     Contact
                                     {path === "/contact" && (
+                                        <span className="bg-black p-[0.025rem]"></span>
+                                    )}
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    href={"/tools/"}
+                                    className={`${
+                                        path === "/tools" && "text-black"
+                                    } hover:text-black transition flex flex-col`}
+                                >
+                                    Tools
+                                    {path === "/tools" && (
                                         <span className="bg-black p-[0.025rem]"></span>
                                     )}
                                 </Link>
