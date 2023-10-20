@@ -74,7 +74,13 @@ export default function Header() {
                     <div className="max-w-full flex flex-row justify-between items-center gap-10">
                         <div className="max-w-full flex flex-row items-center gap-10">
                             <div className="w-1/2 xs:mx-0 sm:mx-0 md:mx-0 lg:mx-auto xl:mx-auto xs:scale-125 sm:scale-125 md:scale-125 lg:scale-100 xl:scale-100">
-                                <Logo />
+                                {path !== "/" ? (
+                                    <Link href={"/"}>
+                                        <Logo />
+                                    </Link>
+                                ) : (
+                                    <Logo />
+                                )}
                             </div>
                             <nav
                                 id="site-navigation"
@@ -111,7 +117,7 @@ export default function Header() {
                                                     )}
                                                 </Link>
                                             </li>
-                                            <li>
+                                            {/* <li>
                                                 <Link
                                                     href={"/blogs/"}
                                                     className={`${
@@ -124,7 +130,7 @@ export default function Header() {
                                                         <span className="bg-black p-[0.025rem]"></span>
                                                     )}
                                                 </Link>
-                                            </li>
+                                            </li> */}
                                             <li>
                                                 <Link
                                                     href={"/contact/"}
@@ -214,7 +220,7 @@ export default function Header() {
                                     )}
                                 </Link>
                             </li>
-                            <li>
+                            {/* <li>
                                 <Link
                                     href={"/blogs/"}
                                     className={`${
@@ -226,7 +232,7 @@ export default function Header() {
                                         <span className="bg-black p-[0.025rem]"></span>
                                     )}
                                 </Link>
-                            </li>
+                            </li> */}
                             <li>
                                 <Link
                                     href={"/contact/"}

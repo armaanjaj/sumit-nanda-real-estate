@@ -157,12 +157,12 @@ export default function Footer() {
                 <div className="flex flex-row justify-between items-center">
                     <div className="flex flex-col justify-start items-start">
                         <span>
-                            &copy; {new Date().getFullYear()} Sumit Nanda
+                            Copyright &copy; {new Date().getFullYear()} Sumit Nanda Real Estate
                         </span>
                         <span>All Rights Reserved</span>
                     </div>
-                    <Link href={"/terms-privacy-policy"}>
-                        Terms & Privacy policy
+                    <Link href={"/terms-and-conditions"}>
+                        Terms & Conditions
                     </Link>
                 </div>
             </div>

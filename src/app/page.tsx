@@ -2,7 +2,8 @@
 import Link from "next/link";
 import ArrowRightAltRoundedIcon from "@mui/icons-material/ArrowRightAltRounded";
 import React from "react";
-import layout from "@/app/site.module.css";
+import { motion } from "framer-motion";
+import Listing from "@/components/listing/Listing";
 
 export default function Home() {
     React.useEffect(() => {
@@ -25,44 +26,108 @@ export default function Home() {
                         {/* Overlay content */}
                         <div className="absolute inset-0 flex flex-col items-center justify-center gap-8">
                             <div className="text-white text-center">
-                                <h1 className="text-6xl font-bold mb-4">
-                                    Welcome to Sumit Nanda's space
-                                </h1>
-                                <p className="text-xl">
-                                    Your gateway to the world of real estate
-                                </p>
+                                <motion.h1
+                                    initial={{
+                                        opacity: 0,
+                                        y: 3,
+                                    }}
+                                    animate={{
+                                        opacity: 1,
+                                        y: 0,
+                                    }}
+                                    transition={{
+                                        duration: 0.3,
+                                        delay: 0,
+                                        type: "spring",
+                                    }}
+                                    className="text-6xl font-bold mb-4"
+                                >
+                                    Sumit Nanda
+                                </motion.h1>
+                                <motion.p
+                                    initial={{
+                                        opacity: 0,
+                                        y: 10,
+                                    }}
+                                    animate={{
+                                        opacity: 1,
+                                        y: 0,
+                                    }}
+                                    transition={{
+                                        duration: 0.5,
+                                        delay: 0.1,
+                                        type: "spring",
+                                    }}
+                                    className="text-xl"
+                                >
+                                    Real Estate Agent
+                                </motion.p>
                             </div>
                             <div className="flex flex-row justify-center items-center gap-5">
-                                <Link
-                                    href={"https://sumitnanda.com"}
-                                    target="_blank"
-                                    className="flex flex-row flex-nowrap justify-center link-button group relative rounded w-fit px-5 py-3 bg-red-600 text-white font-bold transition-transform ease-in-out duration-300 hover:translate-x-2"
+                                <motion.div
+                                    initial={{
+                                        opacity: 0,
+                                        y: 10,
+                                    }}
+                                    animate={{
+                                        opacity: 1,
+                                        y: 0,
+                                    }}
+                                    transition={{
+                                        duration: 0.3,
+                                        delay: 0.2,
+                                        type: "spring",
+                                    }}
                                 >
-                                    <span className="group-hover:hidden">
-                                        Buyer
-                                    </span>
-                                    <span className="hidden group-hover:block">
-                                        Explore properties
-                                        <ArrowRightAltRoundedIcon className="arrow-icon" />
-                                    </span>
-                                </Link>
+                                    <Link
+                                        href={"https://sumitnanda.com"}
+                                        target="_blank"
+                                        className="flex flex-row flex-nowrap justify-center link-button group relative rounded w-fit px-5 py-3 bg-red-600 text-white font-bold transition-transform ease-in-out duration-300 hover:translate-x-2"
+                                    >
+                                        <span className="group-hover:hidden">
+                                            Buyer
+                                        </span>
+                                        <span className="hidden group-hover:block">
+                                            Explore properties
+                                            <ArrowRightAltRoundedIcon className="arrow-icon" />
+                                        </span>
+                                    </Link>
+                                </motion.div>
 
-                                <Link
-                                    href={"/contact"}
-                                    className="flex flex-row flex-nowrap justify-center link-button group relative rounded w-fit px-5 py-3 bg-red-600 text-white font-bold transition-transform ease-in-out duration-300 hover:translate-x-2"
+                                <motion.div
+                                    initial={{
+                                        opacity: 0,
+                                        y: 10,
+                                    }}
+                                    animate={{
+                                        opacity: 1,
+                                        y: 0,
+                                    }}
+                                    transition={{
+                                        duration: 0.5,
+                                        delay: 0.3,
+                                        type: "spring",
+                                    }}
                                 >
-                                    <span className="group-hover:hidden">
-                                        Seller
-                                    </span>
-                                    <span className="hidden group-hover:block">
-                                        Contact me
-                                        <ArrowRightAltRoundedIcon className="arrow-icon" />
-                                    </span>
-                                </Link>
+                                    <Link
+                                        href={"/contact"}
+                                        className="flex flex-row flex-nowrap justify-center link-button group relative rounded w-fit px-5 py-3 bg-red-600 text-white font-bold transition-transform ease-in-out duration-300 hover:translate-x-2"
+                                    >
+                                        <span className="group-hover:hidden">
+                                            Seller
+                                        </span>
+                                        <span className="hidden group-hover:block">
+                                            Contact me
+                                            <ArrowRightAltRoundedIcon className="arrow-icon" />
+                                        </span>
+                                    </Link>
+                                </motion.div>
                             </div>
                         </div>
                     </div>
-                    <section className={`xs:px-2 sm:px-5 md:px-10 lg:px-16 xl:px-36 py-24 h-full w-full`}>
+                    <section
+                        className={`xs:px-2 sm:px-5 md:px-10 lg:px-16 xl:px-36 py-24 h-full w-full flex flex-col justify-start items-stretch gap-24`}
+                    >
                         <div
                             id="get-started"
                             className="flex flex-col justify-center items-center gap-4"
@@ -90,6 +155,12 @@ export default function Home() {
                             >
                                 book a free call
                             </Link>
+                        </div>
+                        <div className="h-screen flex flex-col justify-center items-center gap-4">
+                            <h3 className="text-4xl font-bold">
+                                Recent firm listings
+                            </h3>
+                            <Listing />
                         </div>
                     </section>
                 </section>
