@@ -10,6 +10,7 @@ export default function Logo() {
             width={800}
             height={1000}
             priority
+            loading="eager"
             className={`w-fit h-fit`}
         />
     );

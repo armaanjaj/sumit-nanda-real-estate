@@ -23,10 +23,10 @@ export default function page() {
                             Effective Date: [October 19, 2023]
                         </p>
                         <article className="flex flex-col justify-start items-start gap-5">
-                            These Terms and Conditions ("Terms") govern your use
-                            of the Sumit Nanda Real Estate website ("Website"),
+                            These Terms and Conditions (&ldquo;Terms&rdquo;) govern your use
+                            of the Sumit Nanda Real Estate website (&ldquo;Website&rdquo;),
                             which is owned and operated by Sumit Nanda Real
-                            Estate ("we," "us," or "our"). By using this
+                            Estate (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;). By using this
                             Website, you agree to comply with and be bound by
                             these Terms. If you do not agree with these Terms,
                             please do not use this Website.
@@ -103,7 +103,7 @@ export default function page() {
                                     <ol>
                                         <li>
                                             a. No Warranties: This Website is
-                                            provided "as is" and "as available."
+                                            provided &ldquo;as is&rdquo; and &ldquo;as available.&rdquo;
                                             We make no warranties, express or
                                             implied, regarding the accuracy,
                                             completeness, or availability of the

@@ -24,7 +24,7 @@ export default function page() {
                         </p>
                         <article className="flex flex-col justify-start items-start gap-5">
                             This Privacy Policy describes how Sumit Nanda Real
-                            Estate ("we," "us," or "our") collects, uses, and
+                            Estate (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) collects, uses, and
                             protects your personal information when you use our
                             website. By using this website, you consent to the
                             practices described in this Privacy Policy. If you
@@ -131,7 +131,7 @@ export default function page() {
                             </div>
                             <div className="flex flex-col justify-start items-start gap-0">
                                 <h2 className="font-bold">
-                                    7. Children's Privacy
+                                    7. Children&apos;s Privacy
                                 </h2>
                                 <p>
                                     Our website is not intended for use by

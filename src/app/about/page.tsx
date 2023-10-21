@@ -35,7 +35,7 @@ export default function AboutPage() {
                                 </h1>
                             </div>
                             <div id="about-head-line" className="italic">
-                                I'm Sumit Nanda, and I'm here to redefine your
+                                I&apos;m Sumit Nanda, and I&apos;m here to redefine your
                                 real estate experience. As a lifestyle-focused
                                 Realtor, I approach the world of real estate
                                 with a holistic perspective, catering to Calgary
@@ -48,7 +48,7 @@ export default function AboutPage() {
                                 <p>
                                     As a top-producing real estate advisor, my
                                     approach is not just about transactions;
-                                    it's about transformations. I believe in
+                                    it&apos;s about transformations. I believe in
                                     blending financial wisdom with lifestyle
                                     enhancement, offering you a real estate
                                     journey like no other.
@@ -63,8 +63,8 @@ export default function AboutPage() {
                                     personalized guidance that aligns with your
                                     financial objectives and your deepest
                                     aspirations for a fulfilling life. Whether
-                                    you're looking to buy your dream home or
-                                    embark on a successful selling journey, I'm
+                                    you&apos;re looking to buy your dream home or
+                                    embark on a successful selling journey, I&apos;m
                                     here to make it a seamless and stress-free
                                     experience.
                                 </p>
@@ -74,13 +74,13 @@ export default function AboutPage() {
                                     For Every Lifestyle and Budget:
                                 </h2>
                                 <p>
-                                    I'm proud to work with clients from all
+                                    I&apos;m proud to work with clients from all
                                     walks of life and various financial
-                                    backgrounds. It doesn't matter if you're
+                                    backgrounds. It doesn&apos;t matter if you&apos;re
                                     searching for a larger home, a cozier space,
-                                    a new community, or even a new city; I'm
+                                    a new community, or even a new city; I&apos;m
                                     here to stand by your side every step of the
-                                    way. Let's embark on this journey together
+                                    way. Let&apos;s embark on this journey together
                                     and turn your real estate dreams into a
                                     reality.
                                 </p>
