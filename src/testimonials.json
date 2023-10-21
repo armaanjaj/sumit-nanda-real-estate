@@ -1,0 +1,17 @@
+[
+    {
+        "name": "XYZ",
+        "comment": "ABCABC",
+        "rate": "4.5/5"
+    },
+    {
+        "name": "John Doe",
+        "comment": "Great service!",
+        "rate": "5/5"
+    },
+    {
+        "name": "Jane Smith",
+        "comment": "Amazing product!",
+        "rate": "4.8/5"
+    }
+]

@@ -18,6 +18,7 @@ export default function Page() {
                     <ArrowCircleLeftIcon className="hover:scale-105" />
                     <span>Back</span>
                 </button>
+                <div>Coming soon</div>
             </section>
         </main>
     );

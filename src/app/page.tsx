@@ -2,9 +2,12 @@
 import Link from "next/link";
 import ArrowRightAltRoundedIcon from "@mui/icons-material/ArrowRightAltRounded";
 import OpenInNewSharpIcon from "@mui/icons-material/OpenInNewSharp";
+import CalculateRoundedIcon from "@mui/icons-material/CalculateRounded";
+import PlaylistAddCheckRoundedIcon from "@mui/icons-material/PlaylistAddCheckRounded";
 import React from "react";
 import { motion } from "framer-motion";
 import Listing from "@/components/listing/Listing";
+import TestimonialsSlider from "@/components/testimonialSlider/TestimonialsSlider";
 
 export default function Home() {
     React.useEffect(() => {
@@ -156,7 +159,7 @@ export default function Home() {
                     >
                         <div
                             id="get-started"
-                            className="flex flex-col justify-center items-center gap-4"
+                            className="flex flex-col justify-center items-center gap-5"
                         >
                             <h3 className="text-4xl font-bold">
                                 Ready to get started
@@ -182,12 +185,61 @@ export default function Home() {
                                 book a free call
                             </Link>
                         </div>
-                        <div className="h-screen flex flex-col justify-center items-center gap-4">
+                        <div className="h-screen flex flex-col justify-center items-center gap-10">
                             <h3 className="text-4xl font-bold">
                                 Recent firm listings
                             </h3>
                             <Listing />
                         </div>
+                        <div className="flex flex-col justify-center items-center gap-10">
+                            <h3 className="text-4xl font-bold">
+                                Explore tools
+                            </h3>
+                            <div className="flex justify-center items-center gap-5 xs:flex-col sm:flex-col md:flex-col lg:flex-row xl:flex-row">
+                                <div className="flex flex-col justify-between items-center gap-7 border-2 rounded-md shadow-md p-5 xs:w-fit sm:w-fit md:w-fit lg:w-1/4 xl:w-1/4">
+                                    <h4 className="text-xl font-bold">
+                                        Home evaluator
+                                    </h4>
+                                    <PlaylistAddCheckRoundedIcon className="scale-[200%]" />
+                                    <span className="h-56 flex flex-col justify-center items-center text-center">
+                                        Unlock the full potential of your
+                                        property with our expert home evaluation
+                                        services. Find out what your home is
+                                        really worth.
+                                    </span>
+                                    <Link
+                                        href={"/tools/home-evaluator"}
+                                        className="rounded bg-red-600 px-5 py-3 text-white font-bold hover:shadow-md transition whitespace-nowrap"
+                                    >
+                                        Evaluate my home
+                                    </Link>
+                                </div>
+                                <div className="flex flex-col justify-between items-center gap-7 border-2 rounded-md shadow-md p-5  xs:w-fit sm:w-fit md:w-fit lg:w-1/4 xl:w-1/4">
+                                    <h4 className="text-xl font-bold">
+                                        Mortgage calculator
+                                    </h4>
+                                    <CalculateRoundedIcon className="scale-[200%]" />
+                                    <span className="h-56 flex flex-col justify-center items-center text-center">
+                                        Empower your homeownership dreams with
+                                        our Mortgage Calculator. Calculate your
+                                        monthly payments and plan your path to
+                                        your dream home with confidence.
+                                    </span>
+                                    <Link
+                                        href={"/tools/mortgage-calculator"}
+                                        className="rounded bg-red-600 px-5 py-3 text-white font-bold hover:shadow-md transition whitespace-nowrap"
+                                    >
+                                        Calculate my mortgage
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                        {/* <div className="flex flex-col justify-center items-center gap-10">
+                            <h3 className="text-4xl font-bold">
+                                Testimonials
+                            </h3>
+                            <TestimonialsSlider />
+                        </div> */}
                     </section>
                 </section>
             </main>

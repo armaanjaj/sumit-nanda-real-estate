@@ -8,7 +8,6 @@ import CallOutlinedIcon from "@mui/icons-material/CallOutlined";
 import DehazeIcon from "@mui/icons-material/Dehaze";
 import CloseIcon from "@mui/icons-material/Close";
 import Link from "next/link";
-import layout from "@/app/site.module.css";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -22,6 +21,40 @@ export default function Header() {
         setPath(pathname);
         setMobileMenu(false);
     }, [pathname]);
+
+    const menuVariants = {
+        open: {
+            height: "auto",
+            transition: {
+                type: "spring",
+                stiffness: 600,
+                damping: 50,
+                mass: 1,
+            },
+        },
+        closed: {
+            height: "0vh",
+            transition: {
+                type: "spring",
+                stiffness: 400,
+                damping: 50,
+                mass: 1,
+            },
+        },
+    };
+
+    const menuItemVariants = {
+        open: {
+            y: 0,
+            opacity: 1,
+            transition: { opacity: { duration: 0.2 } },
+        },
+        closed: {
+            y: -50,
+            opacity: 0,
+            transition: { opacity: { duration: 0.2 } },
+        },
+    };
 
     return (
         <>
@@ -69,7 +102,7 @@ export default function Header() {
                     </nav>
                 </div>
                 <div
-                    className={`xs:px-2 sm:px-5 md:px-10 lg:px-16 xl:px-36 py-2`}
+                    className={`${mobileMenu && 'shadow-md transition'} xs:px-2 sm:px-5 md:px-10 lg:px-16 xl:px-36 py-2`}
                 >
                     <div className="max-w-full flex flex-row justify-between items-center gap-10">
                         <div className="max-w-full flex flex-row items-center gap-10">
@@ -149,12 +182,15 @@ export default function Header() {
                                                 <Link
                                                     href={"/tools/"}
                                                     className={`${
-                                                        path.startsWith("/tools") &&
-                                                        "text-black"
+                                                        path.startsWith(
+                                                            "/tools"
+                                                        ) && "text-black"
                                                     } hover:text-black transition flex flex-col`}
                                                 >
                                                     Tools
-                                                    {path.startsWith("/tools") && (
+                                                    {path.startsWith(
+                                                        "/tools"
+                                                    ) && (
                                                         <span className="bg-black p-[0.025rem]"></span>
                                                     )}
                                                 </Link>
@@ -202,13 +238,14 @@ export default function Header() {
                 {mobileMenu && (
                     <motion.div
                         id="mobile-menu"
-                        initial={{ opacity: 0, y: -20 }} // Initial state (hidden and slightly above)
-                        animate={{ opacity: 1, y: 0 }} // Animation state (visible and at normal position)
-                        exit={{ opacity: 0, y: -20 }} // Exit state (hidden and slightly above)
-                        transition={{ duration: 0.3 }} // Animation duration
+                        variants={menuVariants}
+                        initial="closed"
+                        animate={mobileMenu ? "open" : "closed"}
+                        exit="closed"
+                        className="bg-gray-100"
                     >
-                        <ul className="list-none flex flex-col justify-start items-start px-10 py-5 border-b-2 gap-6">
-                            <li>
+                        <ul className="list-none flex flex-col justify-start items-start px-10 py-5 gap-6">
+                            <motion.li variants={menuItemVariants}>
                                 <Link
                                     href={"/"}
                                     className={`${
@@ -220,8 +257,8 @@ export default function Header() {
                                         <span className="bg-black p-[0.025rem]"></span>
                                     )}
                                 </Link>
-                            </li>
-                            <li>
+                            </motion.li>
+                            <motion.li variants={menuItemVariants}>
                                 <Link
                                     href={"/about/"}
                                     className={`${
@@ -233,7 +270,7 @@ export default function Header() {
                                         <span className="bg-black p-[0.025rem]"></span>
                                     )}
                                 </Link>
-                            </li>
+                            </motion.li>
                             {/* <li>
                                 <Link
                                     href={"/blogs/"}
@@ -247,7 +284,7 @@ export default function Header() {
                                     )}
                                 </Link>
                             </li> */}
-                            <li>
+                            <motion.li variants={menuItemVariants}>
                                 <Link
                                     href={"/contact/"}
                                     className={`${
@@ -259,8 +296,8 @@ export default function Header() {
                                         <span className="bg-black p-[0.025rem]"></span>
                                     )}
                                 </Link>
-                            </li>
-                            <li>
+                            </motion.li>
+                            <motion.li variants={menuItemVariants}>
                                 <Link
                                     href={"/tools/"}
                                     className={`${
@@ -272,8 +309,11 @@ export default function Header() {
                                         <span className="bg-black p-[0.025rem]"></span>
                                     )}
                                 </Link>
-                            </li>
-                            <li className="text-center">
+                            </motion.li>
+                            <motion.li
+                                variants={menuItemVariants}
+                                className="text-center"
+                            >
                                 <Link
                                     href="https://calendly.com/sumitnandaexa/30min"
                                     target="_blank"
@@ -281,7 +321,7 @@ export default function Header() {
                                 >
                                     schedule appointment
                                 </Link>
-                            </li>
+                            </motion.li>
                         </ul>
                     </motion.div>
                 )}
