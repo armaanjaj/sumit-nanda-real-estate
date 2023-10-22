@@ -6,6 +6,10 @@ import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 export default function Page() {
     const router = useRouter();
 
+    React.useEffect(() => {
+        document.title = "Home evaluator | Tools - Sumit Nanda";
+    }, []);
+
     return (
         <main>
             <section

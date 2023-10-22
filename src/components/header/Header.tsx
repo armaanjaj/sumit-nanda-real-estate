@@ -5,11 +5,10 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import CallOutlinedIcon from "@mui/icons-material/CallOutlined";
-import DehazeIcon from "@mui/icons-material/Dehaze";
-import CloseIcon from "@mui/icons-material/Close";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import { Squash } from "hamburger-react";
 
 export default function Header() {
     const pathname = usePathname();
@@ -102,7 +101,9 @@ export default function Header() {
                     </nav>
                 </div>
                 <div
-                    className={`${mobileMenu && 'shadow-md transition'} xs:px-2 sm:px-5 md:px-10 lg:px-16 xl:px-36 py-2`}
+                    className={`${
+                        mobileMenu && "shadow-md transition"
+                    } xs:px-2 sm:px-5 md:px-10 lg:px-16 xl:px-36 py-2`}
                 >
                     <div className="max-w-full flex flex-row justify-between items-center gap-10">
                         <div className="max-w-full flex flex-row items-center gap-10">
@@ -219,16 +220,13 @@ export default function Header() {
                         <div className="w-1/2 flex flex-col justify-center items-center xs:block sm:block md:block lg:hidden xl:hidden">
                             <button
                                 id="menu-toggle"
-                                onClick={() => {
-                                    setMobileMenu(!mobileMenu);
-                                }}
                                 className="w-full h-full flex flex-row justify-end items-center"
                             >
-                                {mobileMenu ? (
-                                    <CloseIcon className="scale-110" />
-                                ) : (
-                                    <DehazeIcon className="scale-110" />
-                                )}
+                                <Squash
+                                    size={25}
+                                    toggle={setMobileMenu}
+                                    toggled={mobileMenu}
+                                />
                             </button>
                         </div>
                     </div>

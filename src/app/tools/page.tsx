@@ -2,7 +2,12 @@
 import ToolItem from "@/components/toolItem/ToolItem";
 import React from "react";
 
-export default function page() {
+export default function Page() {
+
+    React.useEffect(() => {
+        document.title = "Tools - Sumit Nanda";
+    }, []);
+
     return (
         <>
             <main>

@@ -159,23 +159,24 @@ export default function Home() {
                     >
                         <div
                             id="get-started"
-                            className="flex flex-col justify-center items-center gap-5"
+                            className="flex flex-col justify-center items-center text-center gap-5"
                         >
                             <h3 className="text-4xl font-bold">
-                                Ready to get started
+                                Ready to Begin Your Journey
                             </h3>
                             <p>
-                                I&apos;d love to show you how working with the
-                                right realtor can transform the process of
-                                buying or selling your home.
+                                I&apos;m eager to demonstrate how partnering
+                                with the right real estate agent can make the
+                                process of buying or selling your home truly
+                                transformative.
                             </p>
                             <p>
-                                With the right advice and thorough financial
-                                planning, you&apos;d be amazed by what&apos;s
-                                within your reach. Working with us represents an
-                                incredible opportunity to put your wealth to
-                                work and design a future that provides more for
-                                you and your family.
+                                With expert guidance and meticulous financial
+                                planning, you&apos;ll be pleasantly surprised by the
+                                possibilities within your grasp. Collaborating
+                                with us offers an exceptional opportunity to
+                                leverage your assets and shape a brighter future
+                                for yourself and your loved ones.
                             </p>
                             <Link
                                 href="https://calendly.com/sumitnandaexa/30min"

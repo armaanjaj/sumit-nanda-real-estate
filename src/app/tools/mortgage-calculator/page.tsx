@@ -7,6 +7,10 @@ import { useRouter } from "next/navigation";
 export default function Page() {
     const router = useRouter();
 
+    React.useEffect(() => {
+        document.title = "Mortgage calculator | Tools - Sumit Nanda";
+    }, []);
+
     return (
         <main>
             <section

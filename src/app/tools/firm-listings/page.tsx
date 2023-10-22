@@ -8,6 +8,10 @@ export default function Page() {
 
     const router = useRouter();
 
+    React.useEffect(() => {
+        document.title = "Firm listings | Tools - Sumit Nanda";
+    }, []);
+
     return (
         <>
             <main>
