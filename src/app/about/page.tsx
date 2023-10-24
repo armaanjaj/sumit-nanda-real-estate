@@ -16,12 +16,12 @@ export default function AboutPage() {
                 >
                     <div className="flex justify-center items-center gap-5 xs:flex-col sm:flex-col md:flex-col lg:flex-row xl:flex-row">
                         <Image
-                            src="/Sumit-Nanda.png"
+                            src="/Sumit Nanda - bgrmd.png"
                             alt="Sumit Nanda"
-                            width={800}
+                            width={900}
                             height={1000}
                             priority
-                            className="w-fit h-fit"
+                            className="w-[68rem] h-[25rem]"
                         />
 
                         <div className="flex flex-col justify-start items-start gap-3">
