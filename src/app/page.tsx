@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 import Listing from "@/components/listing/Listing";
 import TestimonialsSlider from "@/components/testimonialSlider/TestimonialsSlider";
 
-export default function Home() {
+export default function HomePage() {
     React.useEffect(() => {
         document.title = "Sumit Nanda - Real Estate";
     }, []);

@@ -1,7 +1,12 @@
+"use client";
 import Link from "next/link";
 import React from "react";
 
-export default function page() {
+export default function TermsNConditionsPage() {
+    React.useEffect(() => {
+        document.title = "Terms & conditions - Sumit Nanda";
+    }, []);
+
     return (
         <>
             <main>
@@ -23,37 +28,36 @@ export default function page() {
                             Effective Date: [October 19, 2023]
                         </p>
                         <article className="flex flex-col justify-start items-start gap-5">
-                            These Terms and Conditions (&ldquo;Terms&rdquo;) govern your use
-                            of the Sumit Nanda Real Estate website (&ldquo;Website&rdquo;),
-                            which is owned and operated by Sumit Nanda Real
-                            Estate (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;). By using this
-                            Website, you agree to comply with and be bound by
-                            these Terms. If you do not agree with these Terms,
-                            please do not use this Website.
+                            These Terms and Conditions (&ldquo;Terms&rdquo;)
+                            govern your use of the Sumit Nanda Real Estate
+                            website (&ldquo;Website&rdquo;), which is owned and
+                            operated by Sumit Nanda Real Estate
+                            (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or
+                            &ldquo;our&rdquo;). By using this Website, you agree
+                            to comply with and be bound by these Terms. If you
+                            do not agree with these Terms, please do not use
+                            this Website.
                             <div className="flex flex-col justify-start items-start gap-0">
                                 <h2 className="font-bold">
                                     1. Use of the Website
                                 </h2>
-                                <p>
-                                    <ol>
-                                        <li>
-                                            a. Acceptable Use: You must use this
-                                            Website in a manner consistent with
-                                            all applicable laws and regulations
-                                            and in accordance with these Terms.
-                                        </li>
-                                        <li>
-                                            b. User Accounts: Some portions of
-                                            the Website may require you to
-                                            create a user account. You are
-                                            responsible for maintaining the
-                                            confidentiality of your account
-                                            information and are liable for any
-                                            activity that occurs under your
-                                            account.
-                                        </li>
-                                    </ol>
-                                </p>
+                                <ol>
+                                    <li>
+                                        a. Acceptable Use: You must use this
+                                        Website in a manner consistent with all
+                                        applicable laws and regulations and in
+                                        accordance with these Terms.
+                                    </li>
+                                    <li>
+                                        b. User Accounts: Some portions of the
+                                        Website may require you to create a user
+                                        account. You are responsible for
+                                        maintaining the confidentiality of your
+                                        account information and are liable for
+                                        any activity that occurs under your
+                                        account.
+                                    </li>
+                                </ol>
                             </div>
                             <div className="flex flex-col justify-start items-start gap-0">
                                 <h2 className="font-bold">2. Privacy</h2>
@@ -76,51 +80,46 @@ export default function page() {
                                 <h2 className="font-bold">
                                     3. Intellectual Property
                                 </h2>
-                                <p>
-                                    <ol>
-                                        <li>
-                                            a. Copyright: All content and
-                                            materials on this Website, including
-                                            but not limited to text, graphics,
-                                            logos, images, and software, are the
-                                            property of Sumit Nanda Real Estate
-                                            and are protected by copyright laws.
-                                        </li>
-                                        <li>
-                                            b. Trademarks: Sumit Nanda Real
-                                            Estate and related logos and slogans
-                                            are trademarks of Sumit Nanda Real
-                                            Estate. You may not use these marks
-                                            without our prior written
-                                            permission.
-                                        </li>
-                                    </ol>
-                                </p>
+                                <ol>
+                                    <li>
+                                        a. Copyright: All content and materials
+                                        on this Website, including but not
+                                        limited to text, graphics, logos,
+                                        images, and software, are the property
+                                        of Sumit Nanda Real Estate and are
+                                        protected by copyright laws.
+                                    </li>
+                                    <li>
+                                        b. Trademarks: Sumit Nanda Real Estate
+                                        and related logos and slogans are
+                                        trademarks of Sumit Nanda Real Estate.
+                                        You may not use these marks without our
+                                        prior written permission.
+                                    </li>
+                                </ol>
                             </div>
                             <div className="flex flex-col justify-start items-start gap-0">
                                 <h2 className="font-bold">4. Disclaimer</h2>
-                                <p>
-                                    <ol>
-                                        <li>
-                                            a. No Warranties: This Website is
-                                            provided &ldquo;as is&rdquo; and &ldquo;as available.&rdquo;
-                                            We make no warranties, express or
-                                            implied, regarding the accuracy,
-                                            completeness, or availability of the
-                                            Website or its content.
-                                        </li>
-                                        <li>
-                                            b. Limitation of Liability: In no
-                                            event shall Sumit Nanda Real Estate
-                                            be liable for any damages, including
-                                            but not limited to direct, indirect,
-                                            incidental, special, or
-                                            consequential damages, arising out
-                                            of or in connection with your use of
-                                            the Website.
-                                        </li>
-                                    </ol>
-                                </p>
+                                <ol>
+                                    <li>
+                                        a. No Warranties: This Website is
+                                        provided &ldquo;as is&rdquo; and
+                                        &ldquo;as available.&rdquo; We make no
+                                        warranties, express or implied,
+                                        regarding the accuracy, completeness, or
+                                        availability of the Website or its
+                                        content.
+                                    </li>
+                                    <li>
+                                        b. Limitation of Liability: In no event
+                                        shall Sumit Nanda Real Estate be liable
+                                        for any damages, including but not
+                                        limited to direct, indirect, incidental,
+                                        special, or consequential damages,
+                                        arising out of or in connection with
+                                        your use of the Website.
+                                    </li>
+                                </ol>
                             </div>
                             <div className="flex flex-col justify-start items-start gap-0">
                                 <h2 className="font-bold">
@@ -152,14 +151,14 @@ export default function page() {
                                 <p>
                                     If you have any questions about these Terms,
                                     please contact us at:
-                                    <p className="flex flex-col justify-start items-start">
+                                </p>
+                                    <div className="flex flex-col justify-start items-start">
                                         <span>Sumit Nanda Real Estate</span>
                                         <span>
                                             Email: sumit.nanda@exarealty.ca
                                         </span>
                                         <span>Phone: (587)-971-7171</span>
-                                    </p>
-                                </p>
+                                    </div>
                             </div>
                             <div className="flex flex-col justify-start items-start gap-0">
                                 <h2 className="font-bold">8. Governing Law</h2>

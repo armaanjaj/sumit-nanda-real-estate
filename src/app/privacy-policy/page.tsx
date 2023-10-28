@@ -1,7 +1,12 @@
+"use client";
 import Link from "next/link";
 import React from "react";
 
-export default function page() {
+export default function PrivacyPolicyPage() {
+    React.useEffect(() => {
+        document.title = "Privacy policy - Sumit Nanda";
+    }, []);
+
     return (
         <>
             <main>
@@ -24,77 +29,74 @@ export default function page() {
                         </p>
                         <article className="flex flex-col justify-start items-start gap-5">
                             This Privacy Policy describes how Sumit Nanda Real
-                            Estate (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) collects, uses, and
-                            protects your personal information when you use our
-                            website. By using this website, you consent to the
-                            practices described in this Privacy Policy. If you
-                            do not agree with this policy, please do not use our
+                            Estate (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or
+                            &ldquo;our&rdquo;) collects, uses, and protects your
+                            personal information when you use our website. By
+                            using this website, you consent to the practices
+                            described in this Privacy Policy. If you do not
+                            agree with this policy, please do not use our
                             website.
                             <div className="flex flex-col justify-start items-start gap-0">
                                 <h2 className="font-bold">
                                     1. Information We Collect
                                 </h2>
-                                <p>
-                                    <ol>
-                                        <li>
-                                            a. Personal Information: We may
-                                            collect personal information, such
-                                            as your name, email address, phone
-                                            number, and address, when you
-                                            provide it to us voluntarily, for
-                                            example, when you fill out a contact
-                                            form or create a user account.
-                                        </li>
-                                        <li>
-                                            b. Usage Information: We may collect
-                                            information about how you use our
-                                            website, such as your IP address,
-                                            browser type, and the pages you
-                                            visit.
-                                        </li>
-                                    </ol>
-                                </p>
+                                <ol>
+                                    <li>
+                                        a. Personal Information: We may collect
+                                        personal information, such as your name,
+                                        email address, phone number, and
+                                        address, when you provide it to us
+                                        voluntarily, for example, when you fill
+                                        out a contact form or create a user
+                                        account.
+                                    </li>
+                                    <li>
+                                        b. Usage Information: We may collect
+                                        information about how you use our
+                                        website, such as your IP address,
+                                        browser type, and the pages you visit.
+                                    </li>
+                                </ol>
                             </div>
                             <div className="flex flex-col justify-start items-start gap-0">
                                 <h2 className="font-bold">
                                     2. Use of Your Information
                                 </h2>
-                                <p>
+                                <span>
                                     We may use your personal information for the
                                     following purposes:
-                                    <ol>
-                                        <li>
-                                            a. To provide information and
-                                            services you request.
-                                        </li>
-                                        <li>
-                                            b. To improve our website and user
-                                            experience.
-                                        </li>
-                                        <li>
-                                            c. To communicate with you,
-                                            including responding to your
-                                            inquiries.
-                                        </li>
-                                        <li>
-                                            3. Sharing Your Information We may
-                                            share your personal information with
-                                            third parties only under the
-                                            following circumstances:
-                                            <ol className="ml-10">
-                                                <li>a. With your consent.</li>
-                                                <li>
-                                                    b. To comply with legal
-                                                    obligations.
-                                                </li>
-                                                <li>
-                                                    c. To protect our rights and
-                                                    interests.
-                                                </li>
-                                            </ol>
-                                        </li>
-                                    </ol>
-                                </p>
+                                </span>
+                                <ol>
+                                    <li>
+                                        a. To provide information and services
+                                        you request.
+                                    </li>
+                                    <li>
+                                        b. To improve our website and user
+                                        experience.
+                                    </li>
+                                    <li>
+                                        c. To communicate with you, including
+                                        responding to your inquiries.
+                                    </li>
+                                    <li>
+                                        3. Sharing Your Information We may share
+                                        your personal information with third
+                                        parties only under the following
+                                        circumstances:
+                                        <ol className="ml-10">
+                                            <li>a. With your consent.</li>
+                                            <li>
+                                                b. To comply with legal
+                                                obligations.
+                                            </li>
+                                            <li>
+                                                c. To protect our rights and
+                                                interests.
+                                            </li>
+                                        </ol>
+                                    </li>
+                                </ol>
                             </div>
                             <div className="flex flex-col justify-start items-start gap-0">
                                 <h2 className="font-bold">
@@ -157,14 +159,12 @@ export default function page() {
                                 <p>
                                     If you have any questions or concerns about
                                     this Privacy Policy, please contact us at:
-                                    <p className="flex flex-col justify-start items-start">
-                                        <span>Sumit Nanda Real Estate</span>
-                                        <span>
-                                            Email: sumit.nanda@exarealty.ca
-                                        </span>
-                                        <span>Phone: (587)-971-7171</span>
-                                    </p>
                                 </p>
+                                <div className="flex flex-col justify-start items-start">
+                                    <span>Sumit Nanda Real Estate</span>
+                                    <span>Email: sumit.nanda@exarealty.ca</span>
+                                    <span>Phone: (587)-971-7171</span>
+                                </div>
                             </div>
                             <div className="flex flex-col justify-start items-start gap-0">
                                 <h2 className="font-bold">9. Governing Law</h2>
