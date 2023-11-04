@@ -22,7 +22,7 @@ const RedMessage = styled.span`
 
 const CONTACT_FORM_URL = "/api/contact";
 
-export default function Form() {
+export default function ContactForm() {
     const {
         register,
         handleSubmit,

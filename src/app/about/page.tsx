@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import TestimonialsSlider from "@/components/testimonialSlider/TestimonialsSlider";
 
 export default function AboutPage() {
     React.useEffect(() => {
@@ -12,7 +13,7 @@ export default function AboutPage() {
             <main>
                 <section
                     id="about"
-                    className={`xs:px-2 sm:px-5 md:px-10 lg:px-16 xl:px-36 py-24 h-full w-full flex flex-col justify-start items-center gap-3`}
+                    className={`xs:px-2 sm:px-5 md:px-10 lg:px-16 xl:px-36 py-24 h-full w-full flex flex-col justify-start items-center gap-16`}
                 >
                     <div className="flex justify-center items-center gap-5 xs:flex-col sm:flex-col md:flex-col lg:flex-row xl:flex-row">
                         <Image
@@ -35,11 +36,12 @@ export default function AboutPage() {
                                 </h1>
                             </div>
                             <div id="about-head-line" className="italic">
-                                I&apos;m Sumit Nanda, and I&apos;m here to redefine your
-                                real estate experience. As a lifestyle-focused
-                                Realtor, I approach the world of real estate
-                                with a holistic perspective, catering to Calgary
-                                and its surrounding communities.
+                                I&apos;m Sumit Nanda, and I&apos;m here to
+                                redefine your real estate experience. As a
+                                lifestyle-focused Realtor, I approach the world
+                                of real estate with a holistic perspective,
+                                catering to Calgary and its surrounding
+                                communities.
                             </div>
                             <div>
                                 <h2 className="text-lg font-extrabold">
@@ -48,8 +50,8 @@ export default function AboutPage() {
                                 <p>
                                     As a top-producing real estate advisor, my
                                     approach is not just about transactions;
-                                    it&apos;s about transformations. I believe in
-                                    blending financial wisdom with lifestyle
+                                    it&apos;s about transformations. I believe
+                                    in blending financial wisdom with lifestyle
                                     enhancement, offering you a real estate
                                     journey like no other.
                                 </p>
@@ -63,10 +65,10 @@ export default function AboutPage() {
                                     personalized guidance that aligns with your
                                     financial objectives and your deepest
                                     aspirations for a fulfilling life. Whether
-                                    you&apos;re looking to buy your dream home or
-                                    embark on a successful selling journey, I&apos;m
-                                    here to make it a seamless and stress-free
-                                    experience.
+                                    you&apos;re looking to buy your dream home
+                                    or embark on a successful selling journey,
+                                    I&apos;m here to make it a seamless and
+                                    stress-free experience.
                                 </p>
                             </div>
                             <div>
@@ -76,16 +78,20 @@ export default function AboutPage() {
                                 <p>
                                     I&apos;m proud to work with clients from all
                                     walks of life and various financial
-                                    backgrounds. It doesn&apos;t matter if you&apos;re
-                                    searching for a larger home, a cozier space,
-                                    a new community, or even a new city; I&apos;m
-                                    here to stand by your side every step of the
-                                    way. Let&apos;s embark on this journey together
-                                    and turn your real estate dreams into a
-                                    reality.
+                                    backgrounds. It doesn&apos;t matter if
+                                    you&apos;re searching for a larger home, a
+                                    cozier space, a new community, or even a new
+                                    city; I&apos;m here to stand by your side
+                                    every step of the way. Let&apos;s embark on
+                                    this journey together and turn your real
+                                    estate dreams into a reality.
                                 </p>
                             </div>
                         </div>
+                    </div>
+                    <div className="flex flex-col justify-center items-center gap-5 w-full">
+                        <h3 className="text-4xl font-bold">Testimonials</h3>
+                        <TestimonialsSlider />
                     </div>
                 </section>
             </main>

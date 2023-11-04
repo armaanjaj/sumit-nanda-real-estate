@@ -8,6 +8,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import Listing from "@/components/listing/Listing";
 import TestimonialsSlider from "@/components/testimonialSlider/TestimonialsSlider";
+import ReviewForm from "@/components/review-form/Form";
+import Image from "next/image";
 
 export default function HomePage() {
     React.useEffect(() => {
@@ -86,7 +88,7 @@ export default function HomePage() {
                                     <Link
                                         href={"https://sumitnanda.com"}
                                         target="_blank"
-                                        className="flex flex-row flex-nowrap justify-center link-button group relative rounded w-fit px-5 py-3 bg-red-600 text-white font-bold transition-transform ease-in-out duration-300 hover:translate-x-2"
+                                        className="flex flex-row flex-nowrap justify-center link-button group relative rounded-sm w-fit px-5 py-3 bg-red-600 text-white font-bold transition-transform ease-in-out duration-300 hover:translate-x-2"
                                     >
                                         <span className="group-hover:hidden">
                                             Buyer
@@ -115,7 +117,7 @@ export default function HomePage() {
                                 >
                                     <Link
                                         href={"/contact"}
-                                        className="flex flex-row flex-nowrap justify-center link-button group relative rounded w-fit px-5 py-3 bg-red-600 text-white font-bold transition-transform ease-in-out duration-300 hover:translate-x-2"
+                                        className="flex flex-row flex-nowrap justify-center link-button group relative rounded-sm w-fit px-5 py-3 bg-red-600 text-white font-bold transition-transform ease-in-out duration-300 hover:translate-x-2"
                                     >
                                         <span className="group-hover:hidden">
                                             Seller
@@ -144,7 +146,7 @@ export default function HomePage() {
                             >
                                 <Link
                                     href={"/tools/firm-listings"}
-                                    className="flex flex-row flex-nowrap justify-center link-button group relative rounded w-fit px-5 py-3 bg-red-600 text-white font-bold transition-transform ease-in-out duration-300 hover:-translate-y-1"
+                                    className="flex flex-row flex-nowrap justify-center link-button group relative rounded-sm w-fit px-5 py-3 bg-red-600 text-white font-bold transition-transform ease-in-out duration-300 hover:-translate-y-1"
                                 >
                                     <span>
                                         Firm listings
@@ -172,11 +174,12 @@ export default function HomePage() {
                             </p>
                             <p>
                                 With expert guidance and meticulous financial
-                                planning, you&apos;ll be pleasantly surprised by the
-                                possibilities within your grasp. Collaborating
-                                with us offers an exceptional opportunity to
-                                leverage your assets and shape a brighter future
-                                for yourself and your loved ones.
+                                planning, you&apos;ll be pleasantly surprised by
+                                the possibilities within your grasp.
+                                Collaborating with us offers an exceptional
+                                opportunity to leverage your assets and shape a
+                                brighter future for yourself and your loved
+                                ones.
                             </p>
                             <Link
                                 href="https://calendly.com/sumitnandaexa/30min"
@@ -210,7 +213,7 @@ export default function HomePage() {
                                     </span>
                                     <Link
                                         href={"/tools/home-evaluator"}
-                                        className="rounded bg-red-600 px-5 py-3 text-white font-bold hover:shadow-md transition whitespace-nowrap"
+                                        className="rounded-sm bg-red-600 px-5 py-3 text-white font-bold hover:shadow-md transition whitespace-nowrap"
                                     >
                                         Evaluate my home
                                     </Link>
@@ -228,19 +231,35 @@ export default function HomePage() {
                                     </span>
                                     <Link
                                         href={"/tools/mortgage-calculator"}
-                                        className="rounded bg-red-600 px-5 py-3 text-white font-bold hover:shadow-md transition whitespace-nowrap"
+                                        className="rounded-sm bg-red-600 px-5 py-3 text-white font-bold hover:shadow-md transition whitespace-nowrap"
                                     >
                                         Calculate my mortgage
                                     </Link>
                                 </div>
                             </div>
                         </div>
-                        {/* <div className="flex flex-col justify-center items-center gap-10">
-                            <h3 className="text-4xl font-bold">
-                                Testimonials
-                            </h3>
+                        <div className="flex flex-col justify-center items-center gap-10">
+                            <h3 className="text-4xl font-bold">Testimonials</h3>
                             <TestimonialsSlider />
-                        </div> */}
+                        </div>
+                        <div className="flex flex-col justify-center items-center gap-10 w-full">
+                            <h3 className="text-4xl font-bold">
+                                Write a review
+                            </h3>
+                            <div className="flex flex-row justify-center items-center gap-5 w-full">
+                                <div className="xs:hidden sm:hidden md:hidden lg:block xl:block">
+                                    <Image
+                                        src="/write-a-review.jpg"
+                                        alt="Review"
+                                        width={600}
+                                        height={800}
+                                        priority
+                                        className="w-fit"
+                                    />
+                                </div>
+                                <ReviewForm />
+                            </div>
+                        </div>
                     </section>
                 </section>
             </main>
