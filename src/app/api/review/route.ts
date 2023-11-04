@@ -10,7 +10,7 @@ const cache = new NodeCache({
     checkperiod: 300,
 });
 
-export async function GET(res: NextResponse) {
+export async function GET() {
     try {
         const cachedReviews = cache.get("reviews");
 

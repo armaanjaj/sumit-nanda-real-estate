@@ -22,7 +22,7 @@ export default function AboutPage() {
                             width={900}
                             height={1000}
                             priority
-                            className="w-[68rem] h-[25rem]"
+                            className="w-[68rem] h-[30rem]"
                         />
 
                         <div className="flex flex-col justify-start items-start gap-3">
