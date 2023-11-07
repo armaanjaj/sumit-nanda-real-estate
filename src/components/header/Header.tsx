@@ -151,7 +151,7 @@ export default function Header() {
                                                     )}
                                                 </Link>
                                             </li>
-                                            {/* <li>
+                                            <li>
                                                 <Link
                                                     href={"/blogs/"}
                                                     className={`${
@@ -164,7 +164,7 @@ export default function Header() {
                                                         <span className="bg-black p-[0.025rem]"></span>
                                                     )}
                                                 </Link>
-                                            </li> */}
+                                            </li>
                                             <li>
                                                 <Link
                                                     href={"/contact/"}
@@ -269,7 +269,7 @@ export default function Header() {
                                     )}
                                 </Link>
                             </motion.li>
-                            {/* <li>
+                            <li>
                                 <Link
                                     href={"/blogs/"}
                                     className={`${
@@ -281,7 +281,7 @@ export default function Header() {
                                         <span className="bg-black p-[0.025rem]"></span>
                                     )}
                                 </Link>
-                            </li> */}
+                            </li>
                             <motion.li variants={menuItemVariants}>
                                 <Link
                                     href={"/contact/"}

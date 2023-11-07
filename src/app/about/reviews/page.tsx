@@ -48,7 +48,7 @@ export default function ReviewPage() {
                     <h1 className="font-bold text-xl w-full flex flex-row justify-between items-center">
                         <span>Customer reviews</span>
                         <Link
-                            href={"/about/write-a-review"}
+                            href={"/about/reviews/write-a-review"}
                             className="font-normal text-base underline px-3 py-2 rounded border-2"
                         >
                             Write a review

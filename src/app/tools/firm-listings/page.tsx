@@ -24,7 +24,7 @@ export default function Page() {
                     </button>
                     <div className="h-screen flex flex-col justify-center items-center gap-10">
                         <h3 className="text-4xl font-bold">
-                            Recent firm listings
+                            Recent listings
                         </h3>
                         <Listing />
                     </div>

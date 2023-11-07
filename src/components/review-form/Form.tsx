@@ -109,7 +109,7 @@ export default function ReviewForm() {
                 </div>
                 <input
                     type="submit"
-                    className="cursor-pointer bg-[#000] p-2 rounded-sm text-white"
+                    className="cursor-pointer bg-[#000] p-2 rounded-sm text-white hover:bg-gray-800 transition"
                 />
             </form>
         </>

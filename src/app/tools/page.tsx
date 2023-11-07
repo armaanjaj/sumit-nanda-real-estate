@@ -32,7 +32,7 @@ export default function Page() {
                             toolLink={"/firm-listings"}
                             imageSrc={"/tools-see-listings.jpg"}
                             alt={"Firm home listings"}
-                            text={"See firm listings"}
+                            text={"See listings"}
                         />
                     </div>
                 </section>

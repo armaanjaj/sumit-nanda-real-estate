@@ -1,64 +1,77 @@
 import { dbConnect as connect } from "@/dbConfig/dbConfig";
-// import Review from "@/models/reviewModel";
+import Blog from "@/models/blogModel";
 import { NextRequest, NextResponse } from "next/server";
 import NodeCache from "node-cache";
 
-// connect();
+connect();
 
 const cache = new NodeCache({
     stdTTL: 1800,
     checkperiod: 300,
 });
 
-export async function GET() {
-    // try {
-    //     const cachedReviews = cache.get("reviews");
+export async function GET(req: NextRequest) {
+    try {
+        const slug = req.nextUrl.searchParams.get("slug") as string;
 
-    //     if (cachedReviews) {
-    //         return NextResponse.json({ reviews: cachedReviews });
-    //     }
+        if (slug) {
+            // Fetch a specific blog by slug
+            const blog = await Blog.findOne({ slug });
 
-    //     const reviews = await Review.find({});
-    //     cache.set("reviews", reviews);
+            if (blog) {
+                return NextResponse.json({ blog });
+            } else {
+                return NextResponse.json({ error: "Blog not found" }, { status: 404 });
+            }
+        } else {
+            // Fetch all blogs from cache or database
+            const cachedBlogs = cache.get("blogs");
 
-    //     return NextResponse.json({ reviews });
-    // } catch (error: any) {
-    //     return NextResponse.json({ error: error.message }, { status: 500 });
-    // }
+            if (cachedBlogs) {
+                return NextResponse.json({ blogs: cachedBlogs });
+            }
+
+            const blogs = await Blog.find({});
+            cache.set("blogs", blogs);
+            return NextResponse.json({ blogs });
+        }
+    } catch (error: any) {
+        return NextResponse.json({ error: error.message }, { status: 500 });
+    }
 }
+
 export async function POST(req: NextRequest) {
     try {
         const reqBody = await req.json();
-        
-        console.log(reqBody);
+        const { title, content, slug } = reqBody;
 
-        // Check for existing visitor
-        // const visitor = await Review.findOne({ name });
+        // Check for existing title
+        const blogTitle = await Blog.findOne({ title });
 
-        // if (visitor) {
-        //     return NextResponse.json(
-        //         {
-        //             error: "Already posted. No more than one review allowed per person.",
-        //         },
-        //         { status: 400 }
-        //     );
-        // }
+        if (blogTitle) {
+            return NextResponse.json(
+                {
+                    error: "Already posted. More than one blog of same title not allowed",
+                },
+                { status: 400 }
+            );
+        }
 
-        // const review = new Review({
-        //     name,
-        //     comment,
-        //     rating,
-        // });
+        const blog = new Blog({
+            title,
+            content,
+            slug
+        });
 
-        // const savedReview = await review.save();
+        const savedBlog = await blog.save();
 
-        // // Clear the cached reviews to refresh the cache
-        // cache.del("reviews");
+        // Clear the cached blogs to refresh the cache
+        cache.del("blogs");
 
         return NextResponse.json({
-            message: "Review saved successfully",
+            message: "Blog posted successfully",
             success: true,
-            // savedReview,
+            savedBlog,
         });
     } catch (error: any) {
         return NextResponse.json({ error: error.message }, { status: 500 });

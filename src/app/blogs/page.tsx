@@ -1,58 +1,37 @@
 "use client";
 import React from "react";
-import dynamic from "next/dynamic";
-import "react-quill/dist/quill.snow.css";
 import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
+import BlogItem from "@/components/blogItem/BlogItem";
+import axios from "axios";
 
-// Dynamically import ReactQuill to ensure it's only loaded on the client side
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+interface Blog {
+    date: Date;
+    title: string;
+    slug: string;
+}
 
-var toolbarOptions = [
-    ["bold", "italic", "underline", "strike"],
-    ["blockquote", "code-block", "link", "image"],
-
-    [{ header: 1 }, { header: 2 }],
-    [{ list: "ordered" }, { list: "bullet" }],
-    [{ script: "sub" }, { script: "super" }],
-    [{ indent: "-1" }, { indent: "+1" }],
-    [{ direction: "rtl" }],
-
-    [{ size: ["small", false, "large", "huge"] }],
-    [{ header: [1, 2, 3, 4, 5, 6, false] }],
-
-    [{ color: [] }, { background: [] }],
-    [{ font: [] }],
-    [{ align: [] }],
-
-    ["clean"],
-];
-
-export default function BlogsPage() {
+export default function WriteBlogPage() {
     const router = useRouter();
-    const [content, setContent] = React.useState("");
-
-    const handleContentChange = (value: any) => {
-        setContent(value);
-    };
-
-    const handleFormSubmit = async (e: any) => {
-        e.preventDefault();
-
-        const response = await fetch("/api/blog", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ content }),
-        });
-    };
+    const [blogs, setBlogs] = React.useState<Blog[]>([]);
+    const [loading, setLoading] = React.useState(false);
 
     React.useEffect(() => {
-        if (typeof window !== "undefined") {
-            document.title = "Blogs - Sumit Nanda";
-        }
+        document.title = "Blogs - Sumit Nanda";
+        fetchAllBlogs();
     }, []);
+
+    const fetchAllBlogs = async () => {
+        setLoading(true)
+        try {
+            const response = await axios.get("/api/blog");
+            setBlogs(response.data.blogs);
+        } catch (error) {
+            console.error("Error fetching blogs:", error);
+        }
+        setLoading(false)
+    };
 
     return (
         <>
@@ -65,23 +44,32 @@ export default function BlogsPage() {
                         <ArrowCircleLeftIcon className="hover:scale-105" />
                         <span>Back</span>
                     </button>
-                    <form onSubmit={handleFormSubmit}>
-                        <div>
-                            {
-                                <ReactQuill
-                                    value={content}
-                                    onChange={handleContentChange}
-                                    modules={{
-                                        toolbar: toolbarOptions,
-                                    }}
-                                    placeholder="Write an epic"
-                                />
-                            }
+                    <h1 className="font-bold text-xl w-full flex flex-row justify-between items-center">
+                        <span>Blogs</span>
+                        <Link
+                            href={"/blogs/write-a-blog"}
+                            className="font-normal text-base underline px-3 py-2 rounded border-2"
+                        >
+                            Write a blog
+                        </Link>
+                    </h1>
+                    {loading ? (
+                        "Loading..."
+                    ) : (
+                        <div className="flex flex-row justify-start items-center gap-10 flex-wrap">
+                            {blogs.length > 0 && (
+                                blogs.map((blog, index) => (
+                                    <div key={index}>
+                                        <BlogItem
+                                            slug={blog.slug}
+                                            title={blog.title}
+                                            date={blog.date}
+                                        />
+                                    </div>
+                                ))
+                            )}
                         </div>
-                        <div>
-                            <button type="submit">Publish</button>
-                        </div>
-                    </form>
+                    )}
                 </section>
             </main>
         </>

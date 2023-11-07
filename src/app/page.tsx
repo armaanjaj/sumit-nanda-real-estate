@@ -191,7 +191,7 @@ export default function HomePage() {
                         </div>
                         <div className="h-screen flex flex-col justify-center items-center gap-10">
                             <h3 className="text-4xl font-bold">
-                                Recent firm listings
+                                Recent listings
                             </h3>
                             <Listing />
                         </div>
@@ -213,7 +213,7 @@ export default function HomePage() {
                                     </span>
                                     <Link
                                         href={"/tools/home-evaluator"}
-                                        className="rounded-sm bg-red-600 px-5 py-3 text-white font-bold hover:shadow-md transition whitespace-nowrap"
+                                        className="rounded-sm bg-red-600 px-5 py-3 text-white font-bold hover:shadow-md transition whitespace-nowrap hover:bg-red-500"
                                     >
                                         Evaluate my home
                                     </Link>
@@ -231,7 +231,7 @@ export default function HomePage() {
                                     </span>
                                     <Link
                                         href={"/tools/mortgage-calculator"}
-                                        className="rounded-sm bg-red-600 px-5 py-3 text-white font-bold hover:shadow-md transition whitespace-nowrap"
+                                        className="rounded-sm bg-red-600 px-5 py-3 text-white font-bold hover:shadow-md transition whitespace-nowrap hover:bg-red-500"
                                     >
                                         Calculate my mortgage
                                     </Link>
