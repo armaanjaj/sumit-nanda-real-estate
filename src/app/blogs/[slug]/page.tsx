@@ -3,6 +3,7 @@ import { useRouter, usePathname } from "next/navigation";
 import React from "react";
 import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 import axios from "axios";
+import "@/custom-syles/blogStyle.css";
 
 interface Blog {
     date: Date;
@@ -47,9 +48,14 @@ export default function BlogContentPage() {
                 {loading ? (
                     "Loading..."
                 ) : (
-                    <div className="flex flex-col justify-start items-center w-full">
-                        <div>{blog?.title}</div>
-                        <div>{blog?.content}</div>
+                    <div className="flex flex-col justify-start items-center w-full gap-5">
+                        <div className="text-4xl font-extrabold">{blog?.title}</div>
+                        <div
+                            dangerouslySetInnerHTML={{
+                                __html: blog?.content || "",
+                            }}
+                            className="blogStyle"
+                        />
                     </div>
                 )}
             </section>

@@ -13,6 +13,11 @@ const blogSchema = new mongoose.Schema({
             return daysOfWeek[this.date.getDay()];
         },
     },
+    coverImagePath: {
+        type: String,
+        required: [true, "Please provide the cover image"],
+        unique: true,
+    },
     title: {
         type: String,
         required: [true, "Please provide a title"],

@@ -43,7 +43,7 @@ export async function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
     try {
         const reqBody = await req.json();
-        const { title, content, slug } = reqBody;
+        const { coverImagePath, title, content, slug } = reqBody;
 
         // Check for existing title
         const blogTitle = await Blog.findOne({ title });
@@ -58,6 +58,7 @@ export async function POST(req: NextRequest) {
         }
 
         const blog = new Blog({
+            coverImagePath,
             title,
             content,
             slug

@@ -1,0 +1,18 @@
+.blogStyle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 1rem;
+}
+
+.blogStyle p {
+    font-size: large;
+}
+
+.blogStyle ul{
+    list-style: disc;
+}
+.blogStyle li{
+    list-style: decimal;
+}
