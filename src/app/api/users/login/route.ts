@@ -45,15 +45,11 @@ export async function POST(req: NextRequest, res: NextResponse) {
             id: user._id,
             email: user.email,
         };
-
-        console.log('Token Data:', tokenData);
         
         // Create token
         const token = await jwt.sign(tokenData, process.env.JWT_SECRET_KEY!, {
             expiresIn: "10d",
         });
-        
-        console.log('Token Data:', token);
 
         // Create response
         const response = NextResponse.json({

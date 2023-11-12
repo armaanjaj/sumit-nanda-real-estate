@@ -6,17 +6,11 @@ import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { JwtPayload, jwtDecode } from "jwt-decode";
-import Cookies from "universal-cookie";
 
 type Inputs = {
     email: string;
     password: string;
 };
-
-interface ExtendedJwtPayload extends JwtPayload {
-    email: string;
-}
 
 const RedMessage = styled.span`
     color: red;
@@ -26,7 +20,6 @@ const RedMessage = styled.span`
 const LOGIN_FORM_URL = "/api/users/login";
 
 export default function LoginForm() {
-    const cookie = new Cookies();
     const router = useRouter();
     const {
         register,
@@ -38,32 +31,25 @@ export default function LoginForm() {
     const onSubmit: SubmitHandler<Inputs> = async (data, e) => {
         e?.preventDefault();
 
-        try {
-            const response = await axios.post(LOGIN_FORM_URL, data, {
+        axios
+            .post(LOGIN_FORM_URL, data, {
                 headers: {
                     "Content-Type": "application/json",
                 },
-            });
-
-            if (response.data.success) {
-                // Check the token is a valid string before decoding
-                // const token = cookie.get("token");
-                // console.log(token)
-                // if (typeof token === "string") {
-                //     const user = jwtDecode(token) as ExtendedJwtPayload;
+            })
+            .then((response) => {
+                if (response.data.success) {
                     toast(response.data.message);
-                //     router.push(`/admin/user/${user.email}`);
-                // } else {
-                //     console.error("Invalid token format");
-                //     toast("Invalid token format");
-                // }
-            }
-        } catch (error) {
-            console.error(error);
-            // toast(error.response?.data?.error || "An error occurred");
-        } finally {
-            reset();
-        }
+                    router.push("/admin");
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+                toast(error.response?.data?.error || "An error occurred");
+            })
+            .finally(() => {
+                reset();
+            });
     };
 
     return (
@@ -77,7 +63,7 @@ export default function LoginForm() {
             >
                 <div className="flex flex-col justify-start items-start gap-2">
                     <label className="text-lg font-bold">
-                        email&nbsp;<RedMessage>*</RedMessage>
+                        Email&nbsp;<RedMessage>*</RedMessage>
                     </label>
                     <input
                         type="text"

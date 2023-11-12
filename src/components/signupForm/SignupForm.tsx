@@ -41,7 +41,7 @@ export default function SignupForm() {
             .then((response) => {
                 if (response.data.success) {
                     toast(response.data.message);
-                    // router.push(`/admin/user/${response.data.user}`);
+                    router.push('/admin');
                 }
             })
             .catch((error) => {
