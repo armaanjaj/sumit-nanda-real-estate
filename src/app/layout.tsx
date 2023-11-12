@@ -1,12 +1,14 @@
 import Header from "@/components/header/Header";
 import "./globals.css";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import Footer from "@/components/footer/Footer";
+import NextTopLoader from 'nextjs-toploader';
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+    metadataBase: new URL('http://localhost:3000'),
     title: "Sumit Nanda Real Estate",
     abstract:
         "Sumit Nanda Real Estate is your dedicated Realtor serving Calgary and its surrounding communities. We provide personalized guidance for buying your dream home or successfully selling your property. Our approach blends financial wisdom with lifestyle enhancement to transform your real estate experience. Contact us today for a free 30-minute appointment and unlock the full potential of your property. Turn your real estate dreams into a reality with Sumit Nanda Real Estate.",
@@ -16,7 +18,6 @@ export const metadata: Metadata = {
         "Sumit Nanda Real Estate, Real Estate Agent, Buyer, Seller, Firm listings, Home evaluator, Mortgage calculator, Calgary real estate, Real estate advisor, Realtor, Calgary communities, Real estate experience, Personalized guidance, Dream home, Selling journey, Lifestyle enhancement, Financial wisdom, Home evaluation, Property value, Monthly payments, Homeownership dreams",
     applicationName: "Sumit Nanda Real Estate",
     category: "Real Estate Services",
-    themeColor: "#000000",
     appleWebApp: {
         capable: true,
         statusBarStyle: "black-translucent",
@@ -38,6 +39,10 @@ export const metadata: Metadata = {
     },
 };
 
+export const viewport: Viewport = {
+    themeColor: '#000000',
+  }
+
 export default function RootLayout({
     children,
 }: {
@@ -46,6 +51,8 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={inter.className}>
+            <NextTopLoader
+        color="red" showSpinner={false}/>
                 <Header />
                 {children}
                 <Footer />

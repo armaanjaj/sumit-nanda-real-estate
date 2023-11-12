@@ -10,6 +10,7 @@ interface Blog {
     date: Date;
     title: string;
     slug: string;
+    coverImagePath: string;
 }
 
 export default function WriteBlogPage() {
@@ -18,19 +19,19 @@ export default function WriteBlogPage() {
     const [loading, setLoading] = React.useState(false);
 
     React.useEffect(() => {
+        setLoading(true);
         document.title = "Blogs - Sumit Nanda";
         fetchAllBlogs();
+        setLoading(false);
     }, []);
 
     const fetchAllBlogs = async () => {
-        setLoading(true)
         try {
             const response = await axios.get("/api/blog");
             setBlogs(response.data.blogs);
         } catch (error) {
             console.error("Error fetching blogs:", error);
         }
-        setLoading(false)
     };
 
     return (
@@ -44,31 +45,27 @@ export default function WriteBlogPage() {
                         <ArrowCircleLeftIcon className="hover:scale-105" />
                         <span>Back</span>
                     </button>
-                    <h1 className="font-bold text-xl w-full flex flex-row justify-between items-center">
+                    <h1 className="font-bold text-xl w-full flex flex-row justify-center items-center">
                         <span>Blogs</span>
-                        <Link
-                            href={"/blogs/write-a-blog"}
-                            className="font-normal text-base underline px-3 py-2 rounded border-2"
-                        >
-                            Write a blog
-                        </Link>
                     </h1>
                     {loading ? (
-                        "Loading..."
-                    ) : (
+                        <div className="w-full text-center">Loading...</div>
+                    ) : blogs.length > 0 ? (
                         <div className="flex flex-row justify-start items-center gap-10 flex-wrap">
-                            {blogs.length > 0 && (
+                            {blogs.length > 0 &&
                                 blogs.map((blog, index) => (
                                     <div key={index}>
                                         <BlogItem
+                                            coverImagePath={blog.coverImagePath}
                                             slug={blog.slug}
                                             title={blog.title}
                                             date={blog.date}
                                         />
                                     </div>
-                                ))
-                            )}
+                                ))}
                         </div>
+                    ) : (
+                        <div className="w-full text-center">No blogs found</div>
                     )}
                 </section>
             </main>

@@ -59,7 +59,7 @@ export default function ReviewPage() {
                             reviews.map((review, index) => (
                                 <div
                                     key={index}
-                                    className="bg-white h-96 w-80 py-12 px-8 rounded-md shadow-md border-2 flex flex-col justify-between items-center gap-3"
+                                    className="bg-white h-fit w-80 py-12 px-8 rounded-md shadow-md border-2 flex flex-col justify-between items-center gap-3"
                                 >
                                     <p className="h-max">
                                         &ldquo;{review.comment}&rdquo;

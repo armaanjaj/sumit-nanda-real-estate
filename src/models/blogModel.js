@@ -6,13 +6,6 @@ const blogSchema = new mongoose.Schema({
         default: Date.now,
         required: [true, "Please provide a date"],
     },
-    dayOfWeek: {
-        type: String,
-        default: function() {
-            const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-            return daysOfWeek[this.date.getDay()];
-        },
-    },
     coverImagePath: {
         type: String,
         required: [true, "Please provide the cover image"],

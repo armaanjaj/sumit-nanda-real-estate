@@ -49,7 +49,7 @@ export default function BlogContentPage() {
                     "Loading..."
                 ) : (
                     <div className="flex flex-col justify-start items-center w-full gap-5">
-                        <div className="text-4xl font-extrabold">{blog?.title}</div>
+                        <h1 className="text-4xl font-extrabold">{blog?.title}</h1>
                         <div
                             dangerouslySetInnerHTML={{
                                 __html: blog?.content || "",

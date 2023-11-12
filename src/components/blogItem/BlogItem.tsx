@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-export default function BlogItem({ slug, title, date }: any) {
+export default function BlogItem({ coverImagePath, slug, title, date }: any) {
     const [standardDate, setStandardDate] = React.useState("");
 
     React.useEffect(() => {
@@ -41,18 +41,18 @@ export default function BlogItem({ slug, title, date }: any) {
         <>
             <Link
                 href={`/blogs/${slug}`}
-                className="flex flex-col justify-center items-center py-10 rounded-md border shadow-md hover:-translate-y-1 transition h-64"
+                className="flex flex-col justify-center items-center rounded-lg h-fit border shadow-md hover:-translate-y-1 transition"
             >
                 <Image
-                    src={`/tools-see-listings.jpg`}
-                    height={200}
-                    width={300}
+                    src={`${coverImagePath}`}
+                    height={300}
+                    width={560}
                     alt={`ABC`}
-                    className="h-full rounded-lg"
+                    className="max-h-full max-w-full"
                 />
-                <div className="px-5 py-3 font-bold">{title}</div>
-                <div className="font-light text-sm">
-                    {standardDate}
+                <div className="p-2 flex flex-col justify-center items-center">
+                    <div className="px-5 py-3 font-bold">{title}</div>
+                    <div className="font-light text-sm">{standardDate}</div>
                 </div>
             </Link>
         </>

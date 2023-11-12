@@ -42,14 +42,14 @@ const TestimonialsSlider: React.FC = () => {
 
     return (
         <div className="flex flex-col justify-evenly items-center w-full gap-5">
-            <div className="w-full h-max flex flex-row justify-center items-center gap-5">
+            <div className="w-full min-h-max flex flex-row justify-center items-center gap-5">
                 <motion.div
                     key={activeIndex}
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.8 }}
                 >
-                    <div className="bg-white h-96 w-80 py-12 px-8 rounded-md shadow-md border-2 flex flex-col justify-center items-center gap-3">
+                    <div className="bg-white h-fit w-80 py-12 px-8 rounded-md shadow-md border-2 flex flex-col justify-center items-center gap-3">
                         <h2 className="text-lg font-semibold">
                             {reviews[activeIndex]
                                 ? reviews[activeIndex].name

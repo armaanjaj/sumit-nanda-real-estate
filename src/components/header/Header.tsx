@@ -269,7 +269,7 @@ export default function Header() {
                                     )}
                                 </Link>
                             </motion.li>
-                            <li>
+                            <motion.li variants={menuItemVariants}>
                                 <Link
                                     href={"/blogs/"}
                                     className={`${
@@ -281,7 +281,7 @@ export default function Header() {
                                         <span className="bg-black p-[0.025rem]"></span>
                                     )}
                                 </Link>
-                            </li>
+                            </motion.li>
                             <motion.li variants={menuItemVariants}>
                                 <Link
                                     href={"/contact/"}
