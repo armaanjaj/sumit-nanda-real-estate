@@ -19,13 +19,6 @@ const cache = new NodeCache({
     checkperiod: 300,
 });
 
-// disable body parser
-export const config = {
-    api: {
-        bodyParser: false,
-    },
-};
-
 // GET route for fetching blogs
 export async function GET(req: NextRequest) {
     try {
