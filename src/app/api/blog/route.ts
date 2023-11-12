@@ -5,7 +5,7 @@ import Blog from "@/models/blogModel";
 import NodeCache from "node-cache";
 import { join } from "path";
 import { writeFile } from "fs";
-import { promisify } from 'util';
+import { promisify } from "util";
 
 // Convert writeFile to a promise-based function
 const writeFileAsync = promisify(writeFile);
@@ -54,7 +54,10 @@ export async function GET(req: NextRequest) {
             return NextResponse.json({ blogs });
         }
     } catch (error: any) {
-        return NextResponse.json({ error: error.message }, { status: 500 });
+        return NextResponse.json(
+            { error: error.message, success: false },
+            { status: 500 }
+        );
     }
 }
 
@@ -117,6 +120,9 @@ export async function POST(req: NextRequest, res: NextResponse) {
             savedBlog,
         });
     } catch (error: any) {
-        return NextResponse.json({ error: error.message }, { status: 500 });
+        return NextResponse.json(
+            { error: error.message, success: false },
+            { status: 500 }
+        );
     }
 }

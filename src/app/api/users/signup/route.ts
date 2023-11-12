@@ -2,51 +2,19 @@
 import { NextRequest, NextResponse } from "next/server";
 import { dbConnect as connect } from "@/dbConfig/dbConfig";
 import User from "@/models/userModel";
+import bcrypt from "bcryptjs";
 
 // Connect to the database
 connect();
 
-// GET route for fetching user details
-export async function GET(req: NextRequest) {
-    try {
-        const reqBody = await req.json();
-        const { username, password } = reqBody;
-
-        const user = await User.findOne({ username });
-
-        if (user) {
-            return NextResponse.json(
-                {
-                    message: "User found successfully",
-                    success: true,
-                },
-                { status: 200 }
-            );
-        } else {
-            return NextResponse.json(
-                {
-                    error: "User not found.",
-                    success: false,
-                },
-                { status: 404 }
-            );
-        }
-    } catch (error: any) {
-        return NextResponse.json(
-            { error: error.message, success: false },
-            { status: 500 }
-        );
-    }
-}
-
 // POST route for creating a new user
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function POST(req: NextRequest) {
     try {
         const reqBody = await req.json();
-        const { name, username, password } = reqBody;
+        const { name, email, password } = reqBody;
 
         // Check for existing user
-        const user = await User.findOne({ username });
+        const user = await User.findOne({ email });
 
         if (user) {
             return NextResponse.json(
@@ -58,10 +26,14 @@ export async function POST(req: NextRequest, res: NextResponse) {
             );
         }
 
+        // Hash password
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
+
         const newUser = new User({
             name,
-            username,
-            password,
+            email,
+            password: hashedPassword,
         });
 
         const savedUser = await newUser.save();

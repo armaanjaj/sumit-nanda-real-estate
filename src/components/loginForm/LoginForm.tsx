@@ -5,11 +5,18 @@ import styled from "styled-components";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { JwtPayload, jwtDecode } from "jwt-decode";
+import Cookies from "universal-cookie";
 
 type Inputs = {
-    username: string;
+    email: string;
     password: string;
 };
+
+interface ExtendedJwtPayload extends JwtPayload {
+    email: string;
+}
 
 const RedMessage = styled.span`
     color: red;
@@ -19,6 +26,8 @@ const RedMessage = styled.span`
 const LOGIN_FORM_URL = "/api/users/login";
 
 export default function LoginForm() {
+    const cookie = new Cookies();
+    const router = useRouter();
     const {
         register,
         handleSubmit,
@@ -26,26 +35,35 @@ export default function LoginForm() {
         formState: { errors },
     } = useForm<Inputs>();
 
-    const onSubmit: SubmitHandler<Inputs> = (data, e) => {
+    const onSubmit: SubmitHandler<Inputs> = async (data, e) => {
         e?.preventDefault();
 
-        axios
-            .post(LOGIN_FORM_URL, data, {
+        try {
+            const response = await axios.post(LOGIN_FORM_URL, data, {
                 headers: {
                     "Content-Type": "application/json",
                 },
-            })
-            .then((response) => {
-                if (response.data.success) {
-                    toast(response.data.message);
-                } else {
-                    toast(response.data.message);
-                }
-            })
-            .catch((error) => console.log(error))
-            .finally();
+            });
 
-        reset();
+            if (response.data.success) {
+                // Check the token is a valid string before decoding
+                // const token = cookie.get("token");
+                // console.log(token)
+                // if (typeof token === "string") {
+                //     const user = jwtDecode(token) as ExtendedJwtPayload;
+                    toast(response.data.message);
+                //     router.push(`/admin/user/${user.email}`);
+                // } else {
+                //     console.error("Invalid token format");
+                //     toast("Invalid token format");
+                // }
+            }
+        } catch (error) {
+            console.error(error);
+            // toast(error.response?.data?.error || "An error occurred");
+        } finally {
+            reset();
+        }
     };
 
     return (
@@ -59,16 +77,15 @@ export default function LoginForm() {
             >
                 <div className="flex flex-col justify-start items-start gap-2">
                     <label className="text-lg font-bold">
-                        Username&nbsp;<RedMessage>*</RedMessage>
+                        email&nbsp;<RedMessage>*</RedMessage>
                     </label>
                     <input
                         type="text"
-                        placeholder="Username"
-                        maxLength={20}
-                        {...register("username", { required: true })}
+                        placeholder="email"
+                        {...register("email", { required: true })}
                         className="border rounded-none px-5 py-2 text-black outline-[grey]"
                     />
-                    {errors.username && (
+                    {errors.email && (
                         <RedMessage>This field is required</RedMessage>
                     )}
                 </div>

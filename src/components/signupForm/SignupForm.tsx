@@ -5,10 +5,11 @@ import styled from "styled-components";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 type Inputs = {
     name: string;
-    username: string;
+    email: string;
     password: string;
 };
 
@@ -20,6 +21,7 @@ const RedMessage = styled.span`
 const SIGNUP_FORM_URL = "/api/users/signup";
 
 export default function SignupForm() {
+    const router = useRouter();
     const {
         register,
         handleSubmit,
@@ -39,11 +41,13 @@ export default function SignupForm() {
             .then((response) => {
                 if (response.data.success) {
                     toast(response.data.message);
-                } else {
-                    toast(response.data.message);
+                    // router.push(`/admin/user/${response.data.user}`);
                 }
             })
-            .catch((error) => console.log(error))
+            .catch((error) => {
+                console.log(error);
+                toast(error.response.data.error);
+            })
             .finally();
 
         reset();
@@ -75,16 +79,15 @@ export default function SignupForm() {
                 </div>
                 <div className="flex flex-col justify-start items-start gap-2">
                     <label className="text-lg font-bold">
-                        Username&nbsp;<RedMessage>*</RedMessage>
+                        Email&nbsp;<RedMessage>*</RedMessage>
                     </label>
                     <input
                         type="text"
-                        placeholder="Username"
-                        maxLength={20}
-                        {...register("username", { required: true })}
+                        placeholder="Email"
+                        {...register("email", { required: true })}
                         className="border rounded-none px-5 py-2 text-black outline-[grey]"
                     />
-                    {errors.username && (
+                    {errors.email && (
                         <RedMessage>This field is required</RedMessage>
                     )}
                 </div>

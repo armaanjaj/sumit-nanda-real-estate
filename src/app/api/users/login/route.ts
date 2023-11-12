@@ -2,78 +2,73 @@
 import { NextRequest, NextResponse } from "next/server";
 import { dbConnect as connect } from "@/dbConfig/dbConfig";
 import User from "@/models/userModel";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 
 // Connect to the database
 connect();
-
-// GET route for fetching user details
-export async function GET(req: NextRequest) {
-    try {
-        const reqBody = await req.json();
-        const { username, password } = reqBody;
-
-        const user = await User.findOne({ username });
-
-        if (user) {
-            return NextResponse.json(
-                {
-                    message: "User found successfully",
-                    success: true,
-                },
-                { status: 200 }
-            );
-        } else {
-            return NextResponse.json(
-                {
-                    error: "User not found.",
-                    success: false,
-                },
-                { status: 404 }
-            );
-        }
-    } catch (error: any) {
-        return NextResponse.json(
-            { error: error.message, success: false },
-            { status: 500 }
-        );
-    }
-}
 
 // POST route for creating a new user
 export async function POST(req: NextRequest, res: NextResponse) {
     try {
         const reqBody = await req.json();
-        const { name, username, password } = reqBody;
+        const { email, password } = reqBody;
 
         // Check for existing user
-        const user = await User.findOne({ username });
+        const user = await User.findOne({ email });
 
-        if (user) {
+        if (!user) {
             return NextResponse.json(
                 {
-                    error: "User already exist.",
+                    error: "No user found with the given credentials.",
                     success: false,
                 },
                 { status: 400 }
             );
         }
 
-        const newUser = new User({
-            name,
-            username,
-            password,
+        // Check if password is correct
+        const validPassword = await bcrypt.compare(password, user.password);
+
+        if (!validPassword) {
+            return NextResponse.json(
+                {
+                    error: "Invalid password.",
+                    success: false,
+                },
+                { status: 400 }
+            );
+        }
+
+        // Create token data
+        const tokenData = {
+            id: user._id,
+            email: user.email,
+        };
+
+        console.log('Token Data:', tokenData);
+        
+        // Create token
+        const token = await jwt.sign(tokenData, process.env.JWT_SECRET_KEY!, {
+            expiresIn: "10d",
+        });
+        
+        console.log('Token Data:', token);
+
+        // Create response
+        const response = NextResponse.json({
+            message: "Login successful",
+            success: true,
         });
 
-        const savedUser = await newUser.save();
+        // Create response cookie
+        response.cookies.set("token", token, {
+            httpOnly: true,
+        });
 
-        return NextResponse.json(
-            {
-                message: "New user created successfully",
-                success: true,
-                savedUser,
-            },
-            { status: 200 }
-        );
+        // Return response
+        return response;
+
     } catch (error: any) {
         return NextResponse.json(
             { error: error.message, success: false },
